@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let parseConfiguration = ParseClientConfiguration(block: { (ParseMutableClientConfiguration) -> Void in
             ParseMutableClientConfiguration.applicationId = "MeFree"
             ParseMutableClientConfiguration.clientKey = "DJAZmefree4"
-            ParseMutableClientConfiguration.server = "https://mefree.herokuapp.com/parse"
+            ParseMutableClientConfiguration.server = "https://mefree-parse.herokuapp.com/parse"
         })
         
         Parse.initializeWithConfiguration(parseConfiguration)
