@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--HOME-->
+        <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="Home" id="BYZ-38-t0r" customClass="ViewController" customModule="MeFree" customModuleProvider="target" sceneMemberID="viewController">
@@ -28,15 +28,55 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfv-HJ-eHm">
-                                <rect key="frame" x="139" y="121" width="96" height="21"/>
+                                <rect key="frame" x="112" y="119" width="96" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0bR-Sc-Xjo">
+                                <rect key="frame" x="252" y="225" width="51" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Friends">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="bNx-QK-TQo" kind="show" id="LyX-Ze-RhX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5V-HT-yFo">
+                                <rect key="frame" x="249" y="351" width="57" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Settings">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Mjy-S3-nCC" kind="show" id="mGB-mq-ZRt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgD-06-v4z">
+                                <rect key="frame" x="21" y="351" width="44" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Status">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="J5y-9X-zHD" kind="show" id="dAg-UJ-m8n"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lD1-xT-bnc">
+                                <rect key="frame" x="28" y="225" width="30" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Me">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="bwV-Lo-4dR" kind="show" id="iHb-Ps-1Zd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.47843137250000001" green="0.74117647060000003" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="HOME" id="vSZ-Jn-90f"/>
+                    <navigationItem key="navigationItem" title="Home" id="vSZ-Jn-90f"/>
                     <connections>
                         <outlet property="usernameLabel" destination="xfv-HJ-eHm" id="bW8-cH-zuX"/>
                         <segue destination="SWU-1s-33J" kind="presentation" identifier="loginSegue" id="R0f-fI-0oB"/>
@@ -45,6 +85,86 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="738" y="-415"/>
+        </scene>
+        <!--FRIENDS-->
+        <scene sceneID="Chd-D9-uT1">
+            <objects>
+                <viewController title="FRIENDS" id="bNx-QK-TQo" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XPJ-UB-xw8"/>
+                        <viewControllerLayoutGuide type="bottom" id="8ec-IX-qNh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wVU-n7-PKJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Friends" id="kr7-mK-22J"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MHk-RW-uef" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1208" y="-415"/>
+        </scene>
+        <!--Me-->
+        <scene sceneID="sVM-dJ-oO2">
+            <objects>
+                <viewController title="Me" id="bwV-Lo-4dR" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8gE-Ey-eti"/>
+                        <viewControllerLayoutGuide type="bottom" id="tOW-gW-hYW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DPP-A6-SVh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Me" id="fE4-Pd-9xc"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2kr-q9-X2q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1609" y="-415"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="m4i-yJ-1Bp">
+            <objects>
+                <viewController title="Settings" id="Mjy-S3-nCC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zCh-ZO-cHi"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ard-Or-u1j"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FIj-tX-KTJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="2pP-CT-ced"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nzI-4Q-q4j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1208" y="183"/>
+        </scene>
+        <!--Status-->
+        <scene sceneID="JU9-LO-aQg">
+            <objects>
+                <viewController title="Status" id="J5y-9X-zHD" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hGY-Jr-7tZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="R0v-4L-aNx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="33E-Hc-eyv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Status" id="x7G-xS-0gY"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GmD-WC-xeC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1609" y="183"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kdr-2H-ub8">
