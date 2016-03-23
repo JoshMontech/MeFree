@@ -1,0 +1,10 @@
+{
+  "apps": [
+    {
+      "serverURL": "http://mefree.herokuapp.com/parse",
+      "appId": "MeFree",
+      "masterKey": "DJAZmefree4",
+      "appName": "MeFree"
+    }
+  ]
+}
