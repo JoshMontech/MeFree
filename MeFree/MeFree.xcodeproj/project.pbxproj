@@ -21,6 +21,7 @@
 		D0582F9A1CA20CD900931EED /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0582F991CA20CD900931EED /* SignupViewController.swift */; };
 		D0582F9C1CA27AFA00931EED /* mefree.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D0582F9B1CA27AFA00931EED /* mefree.jpg */; };
 		D0582F9E1CA37B7100931EED /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0582F9D1CA37B7100931EED /* MeViewController.swift */; };
+		D0582FA01CA3876E00931EED /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0582F9F1CA3876E00931EED /* FriendsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		D0582F991CA20CD900931EED /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		D0582F9B1CA27AFA00931EED /* mefree.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = mefree.jpg; path = ../MeFree/mefree.jpg; sourceTree = "<group>"; };
 		D0582F9D1CA37B7100931EED /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
+		D0582F9F1CA3876E00931EED /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				D0582F971CA20C8600931EED /* LoginViewController.swift */,
 				D0582F991CA20CD900931EED /* SignupViewController.swift */,
 				D0582F9D1CA37B7100931EED /* MeViewController.swift */,
+				D0582F9F1CA3876E00931EED /* FriendsViewController.swift */,
 			);
 			path = MeFree;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				D0582F981CA20C8600931EED /* LoginViewController.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* HomeViewController.swift in Sources */,
 				D0582F9A1CA20CD900931EED /* SignupViewController.swift in Sources */,
+				D0582FA01CA3876E00931EED /* FriendsViewController.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

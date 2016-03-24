@@ -127,7 +127,7 @@
         <!--FRIENDS-->
         <scene sceneID="Chd-D9-uT1">
             <objects>
-                <viewController title="FRIENDS" id="bNx-QK-TQo" sceneMemberID="viewController">
+                <viewController title="FRIENDS" id="bNx-QK-TQo" customClass="FriendsViewController" customModule="MeFree" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XPJ-UB-xw8"/>
                         <viewControllerLayoutGuide type="bottom" id="8ec-IX-qNh"/>
@@ -135,10 +135,55 @@
                     <view key="view" contentMode="scaleToFill" id="wVU-n7-PKJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="18" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="dUk-BK-hRd">
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" textLabel="oDE-Hl-nNP" detailTextLabel="mf9-eZ-cs6" style="IBUITableViewCellStyleValue1" id="b7j-Zh-VnR">
+                                        <rect key="frame" x="0.0" y="113.5" width="320" height="18"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b7j-Zh-VnR" id="8yD-g1-vG9">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="17.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oDE-Hl-nNP">
+                                                    <rect key="frame" x="15" y="-1" width="31.5" height="19.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mf9-eZ-cs6">
+                                                    <rect key="frame" x="52.5" y="-1" width="252.5" height="19.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="bNx-QK-TQo" id="BuF-lf-Ht6"/>
+                                    <outlet property="delegate" destination="bNx-QK-TQo" id="ecB-bq-k1X"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dUk-BK-hRd" firstAttribute="leading" secondItem="wVU-n7-PKJ" secondAttribute="leading" id="TbV-dV-fOy"/>
+                            <constraint firstItem="8ec-IX-qNh" firstAttribute="top" secondItem="dUk-BK-hRd" secondAttribute="bottom" id="X1l-0E-NPV"/>
+                            <constraint firstItem="dUk-BK-hRd" firstAttribute="top" secondItem="XPJ-UB-xw8" secondAttribute="bottom" id="egL-3O-9j9"/>
+                            <constraint firstAttribute="trailing" secondItem="dUk-BK-hRd" secondAttribute="trailing" id="lf2-Ib-O7Y"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Friends" id="kr7-mK-22J"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="dUk-BK-hRd" id="SFt-Vz-k5I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MHk-RW-uef" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

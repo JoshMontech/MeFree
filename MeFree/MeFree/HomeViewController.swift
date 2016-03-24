@@ -39,9 +39,11 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        if PFUser.currentUser() == nil {
+        if PFUser.currentUser() == nil || PFUser.currentUser()?.username == nil {
+            PFUser.logOut()
             loginScreen()
         }
+        
 
     }
 
