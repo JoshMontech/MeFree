@@ -20,6 +20,7 @@
 		D0582F981CA20C8600931EED /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0582F971CA20C8600931EED /* LoginViewController.swift */; };
 		D0582F9A1CA20CD900931EED /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0582F991CA20CD900931EED /* SignupViewController.swift */; };
 		D0582F9C1CA27AFA00931EED /* mefree.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D0582F9B1CA27AFA00931EED /* mefree.jpg */; };
+		D0582F9E1CA37B7100931EED /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0582F9D1CA37B7100931EED /* MeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		D0582F971CA20C8600931EED /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D0582F991CA20CD900931EED /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		D0582F9B1CA27AFA00931EED /* mefree.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = mefree.jpg; path = ../MeFree/mefree.jpg; sourceTree = "<group>"; };
+		D0582F9D1CA37B7100931EED /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				814C3AC61B69877600E307BB /* Main.storyboard */,
 				D0582F971CA20C8600931EED /* LoginViewController.swift */,
 				D0582F991CA20CD900931EED /* SignupViewController.swift */,
+				D0582F9D1CA37B7100931EED /* MeViewController.swift */,
 			);
 			path = MeFree;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0582F9E1CA37B7100931EED /* MeViewController.swift in Sources */,
 				D0582F981CA20C8600931EED /* LoginViewController.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* HomeViewController.swift in Sources */,
 				D0582F9A1CA20CD900931EED /* SignupViewController.swift in Sources */,
