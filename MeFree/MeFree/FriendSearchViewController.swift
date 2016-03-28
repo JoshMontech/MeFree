@@ -1,17 +1,15 @@
 //
-//  FriendsViewController.swift
+//  FriendSearchViewController.swift
 //  MeFree
 //
-//  Created by Joshua Montgomery on 3/23/16.
+//  Created by Joshua Montgomery on 3/27/16.
 //  Copyright © 2016 Parse. All rights reserved.
 //
 
 import UIKit
 
-class FriendsViewController: UIViewController {
+class FriendSearchViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,23 +32,4 @@ class FriendsViewController: UIViewController {
     }
     */
 
-}
-
-extension FriendsViewController: UITableViewDelegate {
-    
-}
-
-extension FriendsViewController: UITableViewDataSource {
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("friendCell")!
-        cell.textLabel?.text = "Test Friend"
-        cell.detailTextLabel?.text = "Avaiable"
-        
-        return cell
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
-    }
 }

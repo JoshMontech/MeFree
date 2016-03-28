@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MeFree/SignupViewController.swift"
-            timestampString = "480408100.789002"
+            filePath = "MeFree/ParseHelper.swift"
+            timestampString = "480555229.932788"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "signUpAction(_:)"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "getFollowingUsersForUser(_:completionBlock:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
