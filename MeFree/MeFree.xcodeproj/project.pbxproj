@@ -22,7 +22,7 @@
 		D0582F9C1CA27AFA00931EED /* mefree.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D0582F9B1CA27AFA00931EED /* mefree.jpg */; };
 		D0582F9E1CA37B7100931EED /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0582F9D1CA37B7100931EED /* MeViewController.swift */; };
 		D0582FB01CA884D200931EED /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0582FAF1CA884D200931EED /* FriendsTableViewController.swift */; };
-		D0582FB21CA8B81500931EED /* FriendSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0582FB11CA8B81500931EED /* FriendSearchViewController.swift */; };
+		D0582FB41CAA08A600931EED /* UserSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0582FB31CAA08A600931EED /* UserSearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +45,7 @@
 		D0582F9B1CA27AFA00931EED /* mefree.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = mefree.jpg; path = ../MeFree/mefree.jpg; sourceTree = "<group>"; };
 		D0582F9D1CA37B7100931EED /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		D0582FAF1CA884D200931EED /* FriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
-		D0582FB11CA8B81500931EED /* FriendSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchViewController.swift; sourceTree = "<group>"; };
+		D0582FB31CAA08A600931EED /* UserSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +103,7 @@
 				D0582F991CA20CD900931EED /* SignupViewController.swift */,
 				D0582F9D1CA37B7100931EED /* MeViewController.swift */,
 				D0582FAF1CA884D200931EED /* FriendsTableViewController.swift */,
-				D0582FB11CA8B81500931EED /* FriendSearchViewController.swift */,
+				D0582FB31CAA08A600931EED /* UserSearchViewController.swift */,
 			);
 			path = MeFree;
 			sourceTree = "<group>";
@@ -205,11 +205,11 @@
 			files = (
 				D0582F9E1CA37B7100931EED /* MeViewController.swift in Sources */,
 				D0582F981CA20C8600931EED /* LoginViewController.swift in Sources */,
+				D0582FB41CAA08A600931EED /* UserSearchViewController.swift in Sources */,
 				D0582FB01CA884D200931EED /* FriendsTableViewController.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* HomeViewController.swift in Sources */,
 				D0582F9A1CA20CD900931EED /* SignupViewController.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
-				D0582FB21CA8B81500931EED /* FriendSearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
