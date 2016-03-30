@@ -1,51 +1,26 @@
 //
-//  MeViewController.swift
+//  StatusViewController.swift
 //  MeFree
 //
-//  Created by Joshua Montgomery on 3/23/16.
+//  Created by Joshua Montgomery on 3/29/16.
 //  Copyright © 2016 Parse. All rights reserved.
 //
 
 import UIKit
 import Parse
 
-class MeViewController: UIViewController {
+class StatusViewController: UIViewController {
     
-    //outlets
-    @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var userEmailLabel: UILabel!
     @IBOutlet weak var userStatusLabel: UILabel!
-    @IBOutlet weak var userBlurbLabel: UILabel!
-    
-   // username.text = user?["username"]
-   
-    
-    
-    
- 
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //PFUser.currentUser()!["userStatus"] = "busy"
+        //PFUser.currentUser()!.saveInBackground()
         // Do any additional setup after loading the view.
-        var user = PFUser.currentUser()
-        //user?["userBlurb"] = "I'm a cool college student"
-        //user?.saveInBackground()
-        if let userName = user!.username {
-            userNameLabel.text = userName
-        }
-        
-        if let userEmail = user!.email {
-            userEmailLabel.text = userEmail
-        }
-        
-        if let userStatus = user?["userStatus"] {
+        if let userStatus = PFUser.currentUser()?["userStatus"] {
             userStatusLabel.text = userStatus as? String
-        }
-        
-        if let userBlurb = user?["userBlurb"] {
-            userBlurbLabel.text = userBlurb as? String
         }
     }
 

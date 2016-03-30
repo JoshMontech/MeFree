@@ -23,6 +23,8 @@
 		D0582F9E1CA37B7100931EED /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0582F9D1CA37B7100931EED /* MeViewController.swift */; };
 		D0582FB01CA884D200931EED /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0582FAF1CA884D200931EED /* FriendsTableViewController.swift */; };
 		D0582FB41CAA08A600931EED /* UserSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0582FB31CAA08A600931EED /* UserSearchViewController.swift */; };
+		D0D8F3A21CAB48200095CD11 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D8F3A11CAB48200095CD11 /* ProfileViewController.swift */; };
+		D0D8F3A41CAB4FC20095CD11 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D8F3A31CAB4FC20095CD11 /* StatusViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		D0582F9D1CA37B7100931EED /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		D0582FAF1CA884D200931EED /* FriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		D0582FB31CAA08A600931EED /* UserSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchViewController.swift; sourceTree = "<group>"; };
+		D0D8F3A11CAB48200095CD11 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D0D8F3A31CAB4FC20095CD11 /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,8 @@
 				D0582F9D1CA37B7100931EED /* MeViewController.swift */,
 				D0582FAF1CA884D200931EED /* FriendsTableViewController.swift */,
 				D0582FB31CAA08A600931EED /* UserSearchViewController.swift */,
+				D0D8F3A11CAB48200095CD11 /* ProfileViewController.swift */,
+				D0D8F3A31CAB4FC20095CD11 /* StatusViewController.swift */,
 			);
 			path = MeFree;
 			sourceTree = "<group>";
@@ -209,6 +215,8 @@
 				D0582FB01CA884D200931EED /* FriendsTableViewController.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* HomeViewController.swift in Sources */,
 				D0582F9A1CA20CD900931EED /* SignupViewController.swift in Sources */,
+				D0D8F3A21CAB48200095CD11 /* ProfileViewController.swift in Sources */,
+				D0D8F3A41CAB4FC20095CD11 /* StatusViewController.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

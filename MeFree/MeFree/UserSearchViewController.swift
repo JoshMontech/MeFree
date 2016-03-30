@@ -111,8 +111,13 @@ class UserSearchViewController: UIViewController, UITableViewDelegate, UISearchB
 
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //might create issues limiting to 20... note
         if self.data != nil {
-            return self.data.count
+            if self.data.count <= 20 {
+                return self.data.count
+            } else {
+                return 20
+            }
         } //else
         return 0
         //return self.users.count
@@ -144,6 +149,12 @@ class UserSearchViewController: UIViewController, UITableViewDelegate, UISearchB
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("You selected cell #\(indexPath.row)!")
+        
+        let profileUser = self.data[indexPath.row]
+        let profileViewController = self.storyboard?.instantiateViewControllerWithIdentifier("profile") as!ProfileViewController
+
+        profileViewController.profileUser = profileUser
+        self.navigationController?.pushViewController(profileViewController, animated: true)
     }
     
 

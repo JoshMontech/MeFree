@@ -124,6 +124,43 @@
             </objects>
             <point key="canvasLocation" x="738" y="-415"/>
         </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="F2X-HE-MyK">
+            <objects>
+                <viewController storyboardIdentifier="profile" id="CzX-JH-O4c" customClass="ProfileViewController" customModule="MeFree" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CeV-7i-vlj"/>
+                        <viewControllerLayoutGuide type="bottom" id="qtu-6I-sbo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tKf-r8-eUL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nZ-Q4-Omh">
+                                <rect key="frame" x="20" y="150" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1FE-d4-IlZ">
+                                <rect key="frame" x="20" y="104" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="userEmail" destination="5nZ-Q4-Omh" id="jjP-xx-mbz"/>
+                        <outlet property="userName" destination="1FE-d4-IlZ" id="3er-1d-A7N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mGx-5o-m4d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="743" y="-992"/>
+        </scene>
         <!--Search Friends-->
         <scene sceneID="XAf-iR-ePD">
             <objects>
@@ -234,13 +271,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BY1-Es-jpJ">
-                                <rect key="frame" x="140" y="148" width="41" height="21"/>
+                                <rect key="frame" x="20" y="143" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GV8-ca-xH5">
-                                <rect key="frame" x="121" y="113" width="79" height="21"/>
+                                <rect key="frame" x="20" y="114" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pC3-tI-zAb">
+                                <rect key="frame" x="20" y="172" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="blurb" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ail-yV-94U">
+                                <rect key="frame" x="20" y="201" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -251,8 +300,10 @@
                     <navigationItem key="navigationItem" title="Me" id="fE4-Pd-9xc"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="email" destination="BY1-Es-jpJ" id="8J7-Hl-moI"/>
-                        <outlet property="username" destination="GV8-ca-xH5" id="jwl-DO-R3s"/>
+                        <outlet property="userBlurbLabel" destination="Ail-yV-94U" id="aYU-uN-JFX"/>
+                        <outlet property="userEmailLabel" destination="BY1-Es-jpJ" id="KdI-7C-PPh"/>
+                        <outlet property="userNameLabel" destination="GV8-ca-xH5" id="TKe-TQ-HYM"/>
+                        <outlet property="userStatusLabel" destination="pC3-tI-zAb" id="p2L-8A-kt7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2kr-q9-X2q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -282,7 +333,7 @@
         <!--Status-->
         <scene sceneID="JU9-LO-aQg">
             <objects>
-                <viewController title="Status" id="J5y-9X-zHD" sceneMemberID="viewController">
+                <viewController title="Status" id="J5y-9X-zHD" customClass="StatusViewController" customModule="MeFree" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hGY-Jr-7tZ"/>
                         <viewControllerLayoutGuide type="bottom" id="R0v-4L-aNx"/>
@@ -290,10 +341,21 @@
                     <view key="view" contentMode="scaleToFill" id="33E-Hc-eyv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0y-x3-Yd1">
+                                <rect key="frame" x="136" y="130" width="48" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Status" id="x7G-xS-0gY"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="userStatusLabel" destination="c0y-x3-Yd1" id="TRt-to-v4z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GmD-WC-xeC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

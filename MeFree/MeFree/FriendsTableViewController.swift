@@ -138,13 +138,11 @@ class FriendsTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        /*
-        print(indexPath.row)
-        var following = PFObject(className: "Followers")
-        following["following"] = users[indexPath.row]
-        following["follower"] = PFUser.currentUser()
-        following.saveInBackground()
-        */
+        let profileUser = self.userFollowingArr[indexPath.row]
+        let profileViewController = self.storyboard?.instantiateViewControllerWithIdentifier("profile") as!ProfileViewController
+        
+        profileViewController.profileUser = profileUser
+        self.navigationController?.pushViewController(profileViewController, animated: true)
         
     }
 
