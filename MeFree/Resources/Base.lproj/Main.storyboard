@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Home-->
@@ -161,7 +162,7 @@
             </objects>
             <point key="canvasLocation" x="743" y="-992"/>
         </scene>
-        <!--Search Friends-->
+        <!--Search Users-->
         <scene sceneID="XAf-iR-ePD">
             <objects>
                 <viewController id="C5Q-u2-DDG" customClass="UserSearchViewController" customModule="MeFree" customModuleProvider="target" sceneMemberID="viewController">
@@ -211,7 +212,7 @@
                             <constraint firstItem="xcB-Yy-X1Y" firstAttribute="top" secondItem="Naa-pZ-r31" secondAttribute="bottom" id="nsa-oh-8KX"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Search Friends" id="JzI-mB-M4N"/>
+                    <navigationItem key="navigationItem" title="Search Users" id="JzI-mB-M4N"/>
                     <connections>
                         <outlet property="searchBar" destination="xcB-Yy-X1Y" id="NvK-s4-53u"/>
                         <outlet property="tableView" destination="ANC-aP-m87" id="PYe-g1-sqy"/>
@@ -220,6 +221,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aBC-84-ZpO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1188" y="-1053"/>
+        </scene>
+        <!--Friend Requests-->
+        <scene sceneID="6Sw-OK-9qn">
+            <objects>
+                <tableViewController id="tPm-AX-X58" customClass="FriendRequestTableViewController" customModule="MeFree" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="PZm-K0-VgS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="QuB-gi-QAh" customClass="FriendRequestTableViewCell" customModule="MeFree" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QuB-gi-QAh" id="sY1-UC-SDM">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="866-sf-veb">
+                                            <rect key="frame" x="274" y="5" width="30" height="30"/>
+                                            <state key="normal" title="nay"/>
+                                            <connections>
+                                                <action selector="rejectButton:" destination="QuB-gi-QAh" eventType="touchUpInside" id="nBe-FA-DV2"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AA7-YT-5Uw">
+                                            <rect key="frame" x="213" y="5" width="30" height="30"/>
+                                            <state key="normal" title="yay"/>
+                                            <connections>
+                                                <action selector="approveButton:" destination="QuB-gi-QAh" eventType="touchUpInside" id="P8p-HZ-foc"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="tPm-AX-X58" id="Cqb-aB-hbZ"/>
+                            <outlet property="delegate" destination="tPm-AX-X58" id="EEv-VS-ddd"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Friend Requests" id="Lvo-uZ-Do2"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fPH-Y1-aIF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1720" y="-993"/>
         </scene>
         <!--Friend List-->
         <scene sceneID="yhD-ff-TGi">
@@ -246,11 +292,18 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Friend List" id="c2r-YM-BgU">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="OB8-fZ-Mc0">
-                            <connections>
-                                <segue destination="C5Q-u2-DDG" kind="show" id="ipK-c5-v5M"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Add" id="OB8-fZ-Mc0">
+                                <connections>
+                                    <segue destination="C5Q-u2-DDG" kind="show" id="ipK-c5-v5M"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="F" id="S1P-XU-wjD">
+                                <connections>
+                                    <segue destination="tPm-AX-X58" kind="show" id="9v7-b3-Ieu"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>

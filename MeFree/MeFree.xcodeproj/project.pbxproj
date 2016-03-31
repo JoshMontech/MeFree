@@ -25,6 +25,9 @@
 		D0582FB41CAA08A600931EED /* UserSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0582FB31CAA08A600931EED /* UserSearchViewController.swift */; };
 		D0D8F3A21CAB48200095CD11 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D8F3A11CAB48200095CD11 /* ProfileViewController.swift */; };
 		D0D8F3A41CAB4FC20095CD11 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D8F3A31CAB4FC20095CD11 /* StatusViewController.swift */; };
+		D0D8F3A61CAC726F0095CD11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0D8F3A51CAC726F0095CD11 /* LaunchScreen.storyboard */; };
+		D0D8F3A81CACAE0E0095CD11 /* FriendRequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D8F3A71CACAE0E0095CD11 /* FriendRequestTableViewController.swift */; };
+		D0D8F3AA1CACB8010095CD11 /* FriendRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D8F3A91CACB8010095CD11 /* FriendRequestTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		D0582FB31CAA08A600931EED /* UserSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchViewController.swift; sourceTree = "<group>"; };
 		D0D8F3A11CAB48200095CD11 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D0D8F3A31CAB4FC20095CD11 /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
+		D0D8F3A51CAC726F0095CD11 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D0D8F3A71CACAE0E0095CD11 /* FriendRequestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestTableViewController.swift; sourceTree = "<group>"; };
+		D0D8F3A91CACB8010095CD11 /* FriendRequestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,9 @@
 				D0582FB31CAA08A600931EED /* UserSearchViewController.swift */,
 				D0D8F3A11CAB48200095CD11 /* ProfileViewController.swift */,
 				D0D8F3A31CAB4FC20095CD11 /* StatusViewController.swift */,
+				D0D8F3A51CAC726F0095CD11 /* LaunchScreen.storyboard */,
+				D0D8F3A71CACAE0E0095CD11 /* FriendRequestTableViewController.swift */,
+				D0D8F3A91CACB8010095CD11 /* FriendRequestTableViewCell.swift */,
 			);
 			path = MeFree;
 			sourceTree = "<group>";
@@ -197,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0582F9C1CA27AFA00931EED /* mefree.jpg in Resources */,
+				D0D8F3A61CAC726F0095CD11 /* LaunchScreen.storyboard in Resources */,
 				814C3ACA1B69877600E307BB /* Main.storyboard in Resources */,
 				814C3ACB1B69877600E307BB /* Images.xcassets in Resources */,
 			);
@@ -210,9 +220,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0582F9E1CA37B7100931EED /* MeViewController.swift in Sources */,
+				D0D8F3A81CACAE0E0095CD11 /* FriendRequestTableViewController.swift in Sources */,
 				D0582F981CA20C8600931EED /* LoginViewController.swift in Sources */,
 				D0582FB41CAA08A600931EED /* UserSearchViewController.swift in Sources */,
 				D0582FB01CA884D200931EED /* FriendsTableViewController.swift in Sources */,
+				D0D8F3AA1CACB8010095CD11 /* FriendRequestTableViewCell.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* HomeViewController.swift in Sources */,
 				D0582F9A1CA20CD900931EED /* SignupViewController.swift in Sources */,
 				D0D8F3A21CAB48200095CD11 /* ProfileViewController.swift in Sources */,
@@ -330,6 +342,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.parse.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = MeFree;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -347,6 +360,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.parse.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = MeFree;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
