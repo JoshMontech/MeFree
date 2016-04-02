@@ -10,12 +10,12 @@ import UIKit
 import Parse
 
 class FriendRequestTableViewCell: UITableViewCell {
-    @IBAction func approveButton(sender: AnyObject) {
-        print("yay")
-    }
-    @IBAction func rejectButton(sender: AnyObject) {
-        print("nay")
-    }
+
+    @IBOutlet weak var acceptButton: UIButton!
+    
+    @IBOutlet weak var rejectButton: UIButton!
+
+    @IBOutlet weak var nameLabel: UILabel!
    /*
     func requestStatus(approval: Bool) {
         var query = PFQuery(className: "FriendRequests")

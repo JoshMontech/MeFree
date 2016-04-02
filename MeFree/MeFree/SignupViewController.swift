@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class SignupViewController: UIViewController {
+class SignupViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //outlets
     @IBOutlet weak var usernameTextField: UITextField!
@@ -17,7 +17,23 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var pwConfirmTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var emailConfirmTextField: UITextField!
-   
+    @IBOutlet weak var prfilePhotoImageView: UIImageView!
+    
+    @IBAction func selectProfileImageButton(sender: AnyObject) {
+        
+        var myPickerController = UIImagePickerController()
+        myPickerController.delegate = self
+        myPickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        self.presentViewController(myPickerController, animated: true, completion: nil)
+        
+    }
+    
+   func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        prfilePhotoImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     func signUpAction(sender: AnyObject) {
         
         var username = self.usernameTextField.text
@@ -54,9 +70,18 @@ class SignupViewController: UIViewController {
             
             var newUser = PFUser()
             
+            let imageData = UIImageJPEGRepresentation(prfilePhotoImageView.image!, 0.05)
+            let imageFile = PFFile(name:"image.jpg", data:imageData!)
+            do {
+                let attempt = try imageFile!.save()
+            } catch {
+                print(error)
+            }
+            
             newUser.username = username
             newUser.password = password
             newUser.email = finalEmail
+            newUser["userPhoto"] = imageFile
             
             // Sign up the user asynchronously
             newUser.signUpInBackgroundWithBlock({ (succeed, error) -> Void in

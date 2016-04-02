@@ -137,24 +137,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nZ-Q4-Omh">
-                                <rect key="frame" x="20" y="150" width="280" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1FE-d4-IlZ">
-                                <rect key="frame" x="20" y="104" width="280" height="21"/>
+                                <rect key="frame" x="20" y="189" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nZ-Q4-Omh">
+                                <rect key="frame" x="20" y="218" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5le-aK-cSW">
+                                <rect key="frame" x="20" y="318" width="280" height="30"/>
+                                <state key="normal" title="send/reject"/>
+                                <connections>
+                                    <action selector="friendInvite:" destination="CzX-JH-O4c" eventType="touchUpInside" id="ZZU-GN-DHH"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Blurb" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2X-CC-Zdy">
+                                <rect key="frame" x="20" y="247" width="280" height="74"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vvH-t7-KIU">
+                                <rect key="frame" x="20" y="28" width="160" height="160"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="friendButtonText" destination="5le-aK-cSW" id="6mb-nv-aEd"/>
                         <outlet property="userEmail" destination="5nZ-Q4-Omh" id="jjP-xx-mbz"/>
+                        <outlet property="userImage" destination="vvH-t7-KIU" id="B8D-6h-hOi"/>
                         <outlet property="userName" destination="1FE-d4-IlZ" id="3er-1d-A7N"/>
                     </connections>
                 </viewController>
@@ -241,19 +259,24 @@
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="866-sf-veb">
                                             <rect key="frame" x="274" y="5" width="30" height="30"/>
                                             <state key="normal" title="nay"/>
-                                            <connections>
-                                                <action selector="rejectButton:" destination="QuB-gi-QAh" eventType="touchUpInside" id="nBe-FA-DV2"/>
-                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AA7-YT-5Uw">
                                             <rect key="frame" x="213" y="5" width="30" height="30"/>
                                             <state key="normal" title="yay"/>
-                                            <connections>
-                                                <action selector="approveButton:" destination="QuB-gi-QAh" eventType="touchUpInside" id="P8p-HZ-foc"/>
-                                            </connections>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0T-kN-4uk">
+                                            <rect key="frame" x="8" y="14" width="197" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="acceptButton" destination="AA7-YT-5Uw" id="dzP-Cy-zng"/>
+                                    <outlet property="nameLabel" destination="b0T-kN-4uk" id="bHd-RV-4iV"/>
+                                    <outlet property="rejectButton" destination="866-sf-veb" id="djY-di-vSw"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -347,14 +370,34 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1qA-dd-gUz">
+                                <rect key="frame" x="20" y="230" width="150" height="128"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gO-qy-qrI">
+                                <rect key="frame" x="177" y="230" width="48" height="30"/>
+                                <state key="normal" title="update"/>
+                                <connections>
+                                    <action selector="updateImageButton:" destination="bwV-Lo-4dR" eventType="touchUpInside" id="R1C-zq-pid"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e0J-a8-lVh">
+                                <rect key="frame" x="177" y="167" width="51" height="31"/>
+                                <color key="onTintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="switchTriggered:" destination="bwV-Lo-4dR" eventType="valueChanged" id="DmU-qY-i8z"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Me" id="fE4-Pd-9xc"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="switchOutlet" destination="e0J-a8-lVh" id="w6v-Ev-3aL"/>
                         <outlet property="userBlurbLabel" destination="Ail-yV-94U" id="aYU-uN-JFX"/>
                         <outlet property="userEmailLabel" destination="BY1-Es-jpJ" id="KdI-7C-PPh"/>
+                        <outlet property="userImageLabel" destination="1qA-dd-gUz" id="OfT-11-EkW"/>
                         <outlet property="userNameLabel" destination="GV8-ca-xH5" id="TKe-TQ-HYM"/>
                         <outlet property="userStatusLabel" destination="pC3-tI-zAb" id="p2L-8A-kt7"/>
                     </connections>
@@ -601,13 +644,16 @@
                                     <action selector="signupButton:" destination="PY1-1f-xyP" eventType="touchUpInside" id="Y4G-8D-FP9"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mefree.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ipI-9U-6pF">
-                                <rect key="frame" x="20" y="43" width="280" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="ZNs-9b-7JN"/>
-                                    <constraint firstAttribute="width" constant="280" id="ev7-m1-CN8"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cZf-zM-EEe">
+                                <rect key="frame" x="20" y="35" width="128" height="128"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="To7-1U-mjV">
+                                <rect key="frame" x="156" y="84" width="144" height="30"/>
+                                <state key="normal" title="select profile image"/>
+                                <connections>
+                                    <action selector="selectProfileImageButton:" destination="PY1-1f-xyP" eventType="touchUpInside" id="uc6-jc-27c"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.47843137250000001" green="0.74117647060000003" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -621,10 +667,8 @@
                             <constraint firstItem="Cq6-ox-1vq" firstAttribute="centerX" secondItem="QmH-pA-3cg" secondAttribute="centerX" id="f0S-8R-ued"/>
                             <constraint firstItem="S9S-Up-8Ku" firstAttribute="centerX" secondItem="QmH-pA-3cg" secondAttribute="centerX" id="jGv-6B-339"/>
                             <constraint firstItem="j8I-S7-ppn" firstAttribute="centerX" secondItem="QmH-pA-3cg" secondAttribute="centerX" id="kFu-Md-mXa"/>
-                            <constraint firstItem="ipI-9U-6pF" firstAttribute="centerX" secondItem="QmH-pA-3cg" secondAttribute="centerX" id="lm0-mD-hcD"/>
                             <constraint firstItem="SvA-pZ-UPx" firstAttribute="centerX" secondItem="QmH-pA-3cg" secondAttribute="centerX" id="nIg-JI-ejg"/>
                             <constraint firstItem="CUy-ae-P6l" firstAttribute="centerX" secondItem="QmH-pA-3cg" secondAttribute="centerX" id="nn2-Ai-3ce"/>
-                            <constraint firstItem="z7c-B4-PC2" firstAttribute="top" secondItem="ipI-9U-6pF" secondAttribute="bottom" constant="16" id="slU-N3-5XK"/>
                             <constraint firstItem="z7c-B4-PC2" firstAttribute="centerX" secondItem="QmH-pA-3cg" secondAttribute="centerX" id="vYu-BH-KQd"/>
                             <constraint firstItem="SvA-pZ-UPx" firstAttribute="top" secondItem="z7c-B4-PC2" secondAttribute="bottom" constant="8" id="x7r-Pj-DrW"/>
                         </constraints>
@@ -633,6 +677,7 @@
                         <outlet property="emailConfirmTextField" destination="Cq6-ox-1vq" id="amf-9w-5NL"/>
                         <outlet property="emailTextField" destination="CUy-ae-P6l" id="HYA-pZ-YOh"/>
                         <outlet property="passwordTextField" destination="SvA-pZ-UPx" id="MfK-Zf-B4g"/>
+                        <outlet property="prfilePhotoImageView" destination="cZf-zM-EEe" id="8ma-GD-foN"/>
                         <outlet property="pwConfirmTextField" destination="S9S-Up-8Ku" id="mGD-IN-fVe"/>
                         <outlet property="usernameTextField" destination="z7c-B4-PC2" id="Zqr-50-i31"/>
                     </connections>

@@ -8,7 +8,6 @@
 */
 
 import UIKit
-
 import Parse
 
 // If you want to use any of the UI components, uncomment this line
@@ -18,6 +17,10 @@ import Parse
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var friendsOfUser = [PFUser]()
+    
+    
+
 
     //--------------------------------------
     // MARK: - UIApplicationDelegate
@@ -53,6 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // If you would like all objects to be private by default, remove this line.
         defaultACL.publicReadAccess = true
+        defaultACL.publicWriteAccess = true
 
         PFACL.setDefaultACL(defaultACL, withAccessForCurrentUser: true)
 
@@ -71,6 +75,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
             }
         }
+
+        //print(PFUser.currentUser())
+        
+        //--------------------------------------
+        // MARK: - friend / user Query
+        //--------------------------------------
+        if (PFUser.currentUser()?.objectId == "" || PFUser.currentUser()?.objectId == nil) {
+            print("no user")
+            
+        } else {
+            updateFriendList()
+        }
+
+        
 
         //
         //  Swift 1.2
@@ -100,6 +118,71 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         return true
     }
+    
+    func updateFriendList () {
+        //if login, has to do this manually and update friends / users
+        self.friendsOfUser.removeAll()
+        let userCheckOne = PFQuery(className: "Friendships")
+        userCheckOne.whereKey("userB", equalTo: PFUser.currentUser()!)
+        
+        let userCheckTwo = PFQuery(className: "Friendships")
+        userCheckTwo.whereKey("userA", equalTo: PFUser.currentUser()!)
+        
+        let userCheck = PFQuery.orQueryWithSubqueries([userCheckOne, userCheckTwo])
+        userCheck.includeKey("userA")
+        userCheck.includeKey("userB")
+        
+        do {
+            let results: [PFObject] = try userCheck.findObjects()
+            print("what updateFriendList finds \(results)")
+            for object in results {
+                if var user = object["userA"] as? PFUser {
+                    if user.objectId != PFUser.currentUser()?.objectId {
+                        //print("appendA")
+                        self.friendsOfUser.append(user)
+                    } else {
+                        user = (object["userB"] as? PFUser)!
+                        if user.objectId != PFUser.currentUser()?.objectId {
+                            //print("appendB")
+                            self.friendsOfUser.append(user)
+                        }
+                    }
+                }
+            }
+        } catch {
+            print(error)
+        }
+        
+        
+        /*
+        var objects = userCheck.findObjects() as [PFObject]
+            for object in objects! {
+                if var user = object["userA"] as? PFUser {
+                    if user.objectId != PFUser.currentUser()?.objectId {
+                        //print("appendA")
+                        self.friendsOfUser.append(user)
+                    } else {
+                        user = (object["userB"] as? PFUser)!
+                        if user.objectId != PFUser.currentUser()?.objectId {
+                            //print("appendB")
+                            self.friendsOfUser.append(user)
+                        }
+                    }
+                }
+            }
+            print("friendsOfUser")
+            print(self.friendsOfUser)
+        }
+        */
+
+        
+    }
+    
+    func returnFriends() -> [PFUser] {
+        print("friends passed from returnFriends in app delegate: \(friendsOfUser)")
+        return friendsOfUser
+    }
+    
 
     //--------------------------------------
     // MARK: Push Notifications

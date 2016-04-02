@@ -12,11 +12,8 @@ import Parse
 class UserSearchViewController: UIViewController, UITableViewDelegate, UISearchBarDelegate, UITableViewDataSource {
     
     @IBOutlet weak var searchBar: UISearchBar!
-    
     @IBOutlet weak var tableView: UITableView!
-    //var items: [String] = ["We", "Heart", "Swift"]
-    //var users = [PFUser]()
-    //var isFollowing = [false]
+    
     //search
     var searchActive : Bool = false
     var data:[PFUser]!
@@ -26,55 +23,6 @@ class UserSearchViewController: UIViewController, UITableViewDelegate, UISearchB
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-        /*
-        
-        //self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        // Do any additional setup after loading the view.
-        //query db for all users
-        var query = PFUser.query()
-        query?.findObjectsInBackgroundWithBlock({ (objects, error) in
-            self.users.removeAll(keepCapacity: true)
-            self.isFollowing.removeAll(keepCapacity: true)
-            if error == nil && objects != nil {
-                for object in objects! {
-                    if let user = object as? PFUser {
-                        if user.objectId != PFUser.currentUser()?.objectId {
-                            self.users.append(user)
-                            
-                            //followers
-                            var query = PFQuery(className: "Followers")
-                            
-                            query.whereKey("follower", equalTo: PFUser.currentUser()!)
-                            query.whereKey("following", equalTo: user)
-                            
-                            query.findObjectsInBackgroundWithBlock({ (objects, error) in
-                                if let objects = objects {
-                                    if objects.count > 0 {
-                                        
-                                        self.isFollowing.append(true)
-
-                                    } else {
-                                        
-                                        self.isFollowing.append(false)
-                                    }
-                                  
-                                }
-                                
-                                if self.isFollowing.count == self.users.count {
-                                    self.tableView.reloadData()
-                                }
-
-                            })
-                            
-                        }
-                    }
-                }
-            }
-            //print(self.users)
-            //self.tableView.reloadData()
-        })
-        */
         search()
     }
 
@@ -93,7 +41,7 @@ class UserSearchViewController: UIViewController, UITableViewDelegate, UISearchB
         
         query?.findObjectsInBackgroundWithBlock { (results, error) -> Void in
             self.data = results as? [PFUser]!
-            //remove current user
+            //remove PFUser.currentUser from table display
             var count = 0
             for user in self.data {
                 print("loop")
@@ -125,15 +73,7 @@ class UserSearchViewController: UIViewController, UITableViewDelegate, UISearchB
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
-        /*
-        cell.textLabel?.text = self.users[indexPath.row].username
-        
-        //marks followers with checkmark
-        
-        if self.isFollowing[indexPath.row] == true {
-            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
-        }
-        */
+
         //if self.data != nil || self.data.count > 0 {
             let obj = self.data[indexPath.row]
             cell.textLabel!.text = obj["username"] as? String
@@ -151,7 +91,13 @@ class UserSearchViewController: UIViewController, UITableViewDelegate, UISearchB
         print("You selected cell #\(indexPath.row)!")
         
         let profileUser = self.data[indexPath.row]
+        
+        
+        
+        //if friend, profile view
         let profileViewController = self.storyboard?.instantiateViewControllerWithIdentifier("profile") as!ProfileViewController
+        
+        //if not friend, spectate view
 
         profileViewController.profileUser = profileUser
         self.navigationController?.pushViewController(profileViewController, animated: true)

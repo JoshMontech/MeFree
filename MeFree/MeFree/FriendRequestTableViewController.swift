@@ -12,6 +12,15 @@ import Parse
 class FriendRequestTableViewController: UITableViewController {
     
     var friendRequests = [PFObject]()
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+        print("friendRequestViewWillAppear")
+    }
+ 
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,13 +69,69 @@ class FriendRequestTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as!FriendRequestTableViewCell
 
         // Configure the cell...
-        cell.textLabel?.text = friendRequests[indexPath.row]["fromUser"].username
+        cell.nameLabel?.text = friendRequests[indexPath.row]["fromUser"].username
         
+        cell.acceptButton.tag = indexPath.row
+        cell.rejectButton.tag = indexPath.row
+        
+        cell.acceptButton.addTarget(self, action: "acceptFriendRequest:", forControlEvents: .TouchUpInside)
+        
+        cell.rejectButton.addTarget(self, action: "rejectFriendRequest:", forControlEvents: .TouchUpInside)
+    
         
     
-         //cell.textLabel?.text = targetUser.username
+         //cell.titleLabel?.text = targetUser.username
         return cell
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //update requestStatus
+        print("update requeststatus")
+    }
+    
+    //updates friend status
+    func updateStatus (request: PFObject, status: String) {
+        request["requestStatus"] = status
+        request.saveInBackground()
+    }
+    
+
+    
+    @IBAction func acceptFriendRequest(sender: UIButton) {
+        //update DB
+        
+        print("Before accept: \(appDelegate.friendsOfUser)")
+        //print("acceptFriendRequest")
+        let userRelation = self.friendRequests[sender.tag]
+        //print(self.friendRequests[sender.tag])
+        updateStatus(userRelation, status: "confirmed")
+        var createFriendship = PFObject(className: "Friendships")
+        createFriendship["userA"] = PFUser.currentUser()
+        createFriendship["userB"] = userRelation["fromUser"]
+        do {
+            try createFriendship.save()
+        } catch {
+            error
+        }
+        self.friendRequests.removeAtIndex(sender.tag)
+        self.tableView.reloadData()
+        appDelegate.updateFriendList()
+        print("After accept: \(appDelegate.friendsOfUser)")
+        //message prompt
+        
+        
+    }
+    
+    @IBAction func rejectFriendRequest(sender: UIButton) {
+        //not implemented yet
+        //update DB
+        updateStatus(self.friendRequests[sender.tag], status: "")
+        self.friendRequests.removeAtIndex(sender.tag)
+        self.tableView.reloadData()
+        
+        //message prompt
+    }
+ 
     
 
     /*
