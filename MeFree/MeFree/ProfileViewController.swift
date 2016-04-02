@@ -82,16 +82,18 @@ class ProfileViewController: UIViewController {
 
     func addOrRemoveFriend (friendship: Bool) {
         if friendship == true {
+            print("friendship true")
             //remove friend
             //reload screen
             self.friendButtonText.hidden = true
+            
             let userCheckOne = PFQuery(className: "Friendships")
             userCheckOne.whereKey("userB", equalTo: PFUser.currentUser()!)
             userCheckOne.whereKey("userA", equalTo: profileUser!)
             
             let userCheckTwo = PFQuery(className: "Friendships")
             userCheckTwo.whereKey("userA", equalTo: PFUser.currentUser()!)
-            userCheckOne.whereKey("userB", equalTo: profileUser!)
+            userCheckTwo.whereKey("userB", equalTo: profileUser!)
             
             let userCheck = PFQuery.orQueryWithSubqueries([userCheckOne, userCheckTwo])
             userCheck.includeKey("userA")
@@ -100,7 +102,7 @@ class ProfileViewController: UIViewController {
             userCheck.findObjectsInBackgroundWithBlock({ (objects, error) in
                 if objects!.count > 0 {
                     for object in objects! {
-                        
+                        print ("this is friendship to be deleted: \(object)")
                         object.deleteInBackground()
                         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                         appDelegate.updateFriendList()
@@ -108,26 +110,31 @@ class ProfileViewController: UIViewController {
                     }
                 }
             })
-            /*
+ 
+            print("attempt at fr query")
             let userCheckA = PFQuery(className: "FriendRequests")
-            userCheckOne.whereKey("fromUser", equalTo: PFUser.currentUser()!)
-            userCheckOne.whereKey("toUser", equalTo: profileUser!)
+            userCheckA.whereKey("fromUser", equalTo: PFUser.currentUser()!)
+            userCheckA.whereKey("toUser", equalTo: profileUser!)
             
+            
+            print("attempt at fr query")
             let userCheckB = PFQuery(className: "FriendRequests")
-            userCheckTwo.whereKey("toUser", equalTo: PFUser.currentUser()!)
-            userCheckOne.whereKey("fromUser", equalTo: profileUser!)
+            userCheckB.whereKey("toUser", equalTo: PFUser.currentUser()!)
+            userCheckB.whereKey("fromUser", equalTo: profileUser!)
             
-            let userCheckX = PFQuery.orQueryWithSubqueries([userCheckOne, userCheckTwo])
-            userCheck.includeKey("fromUser")
-            userCheck.includeKey("toUser")
+            let userCheckC = PFQuery.orQueryWithSubqueries([userCheckA, userCheckB])
+            userCheckC.includeKey("fromUser")
+            userCheckC.includeKey("toUser")
             
-            userCheckX.findObjectsInBackgroundWithBlock({ (objects, error) in
+            
+            userCheckC.findObjectsInBackgroundWithBlock({ (objects, error) in
                 if objects!.count > 0 {
+                    print("this is request set to empty: \(objects)")
                     objects![0]["requestStatus"] = ""
                     objects![0].saveInBackground()
                 }
             })
-            */
+ 
             
             
         } else {
