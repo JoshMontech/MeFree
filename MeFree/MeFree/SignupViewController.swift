@@ -112,6 +112,10 @@ class SignupViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
+        prfilePhotoImageView.clipsToBounds = true
+        prfilePhotoImageView.layer.borderWidth = 3.0
+        prfilePhotoImageView.layer.borderColor = UIColor.whiteColor().CGColor
+        prfilePhotoImageView.layer.cornerRadius = 10.0
     }
     
     func dismissKeyboard() {
