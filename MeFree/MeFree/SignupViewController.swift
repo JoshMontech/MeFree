@@ -31,6 +31,10 @@ class SignupViewController: UIViewController, UIImagePickerControllerDelegate, U
    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         prfilePhotoImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        prfilePhotoImageView.clipsToBounds = true
+        prfilePhotoImageView.layer.borderWidth = 3.0
+        prfilePhotoImageView.layer.borderColor = UIColor.whiteColor().CGColor
+        prfilePhotoImageView.layer.cornerRadius = 10.0
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

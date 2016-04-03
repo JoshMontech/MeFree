@@ -17,8 +17,11 @@ class MeViewController: UIViewController, UIImagePickerControllerDelegate, UINav
     @IBOutlet weak var userStatusLabel: UILabel!
     @IBOutlet weak var userBlurbLabel: UILabel!
     @IBOutlet weak var userImageLabel: UIImageView!
-    
     @IBOutlet weak var switchOutlet: UISwitch!
+    
+    
+    
+    
     @IBAction func switchTriggered(sender: AnyObject) {
         if switchOutlet.on {
             print("on")
@@ -46,6 +49,11 @@ class MeViewController: UIViewController, UIImagePickerControllerDelegate, UINav
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         userImageLabel.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        userImageLabel.clipsToBounds = true
+        userImageLabel.layer.borderWidth = 3.0
+        userImageLabel.layer.borderColor = UIColor.whiteColor().CGColor
+        userImageLabel.layer.cornerRadius = 10.0
+        
         self.dismissViewControllerAnimated(true, completion: nil)
         
         
@@ -53,7 +61,7 @@ class MeViewController: UIViewController, UIImagePickerControllerDelegate, UINav
         let imageData = UIImageJPEGRepresentation(userImageLabel.image!, 0.05)
         let imageFile = PFFile(name:"image.jpg", data:imageData!)
         do {
-            let attempt = try imageFile!.save()
+            try imageFile!.save()
         } catch {
             print(error)
         }
@@ -93,6 +101,10 @@ class MeViewController: UIViewController, UIImagePickerControllerDelegate, UINav
             userPicture.getDataInBackgroundWithBlock { (imageData: NSData?, error: NSError?) -> Void in
                 if (error == nil) {
                     self.userImageLabel.image = UIImage(data:imageData!)
+                    self.userImageLabel.clipsToBounds = true
+                    self.userImageLabel.layer.borderWidth = 3.0
+                    self.userImageLabel.layer.borderColor = UIColor.whiteColor().CGColor
+                    self.userImageLabel.layer.cornerRadius = 10.0
                 }
             }
         }

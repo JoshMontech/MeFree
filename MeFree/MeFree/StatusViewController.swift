@@ -12,7 +12,42 @@ import Parse
 class StatusViewController: UIViewController {
     
     @IBOutlet weak var userStatusLabel: UILabel!
+    @IBOutlet weak var switchOutlet: UISwitch!
+    @IBAction func switchTriggered(sender: AnyObject) {
+        
+        if switchOutlet.on {
+            freeTriggered()
+        } else {
+            busyTriggered()
+        }
+       
+        
+    }
 
+    func backgroundColorChange(color: UIColor){
+        UIView.animateWithDuration(0.5, delay: 0.0, options:UIViewAnimationOptions.TransitionFlipFromLeft, animations: {
+            self.view.backgroundColor = color
+        }, completion:nil)
+    }
+    
+    func freeTriggered () {
+        print("free triggered")
+        PFUser.currentUser()!["userStatus"] = "free"
+         PFUser.currentUser()?.saveInBackground()
+        
+        backgroundColorChange(UIColor.greenColor())
+        userStatusLabel.text = "free"
+    }
+    
+    func busyTriggered () {
+        print("busy triggered")
+        PFUser.currentUser()!["userStatus"] = "busy"
+         PFUser.currentUser()?.saveInBackground()
+        
+        backgroundColorChange(UIColor.redColor())
+        userStatusLabel.text = "busy"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +56,13 @@ class StatusViewController: UIViewController {
         // Do any additional setup after loading the view.
         if let userStatus = PFUser.currentUser()?["userStatus"] {
             userStatusLabel.text = userStatus as? String
+            if userStatusLabel.text == "free" {
+                switchOutlet.on = true
+                view.backgroundColor = UIColor.greenColor()
+            } else {
+                switchOutlet.on = false
+                view.backgroundColor = UIColor.redColor()
+            }
         }
     }
 

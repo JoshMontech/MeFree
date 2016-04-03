@@ -40,6 +40,16 @@ class ProfileViewController: UIViewController {
             }
         }
         
+        
+        
+       // self.userImage.layer.cornerRadius = self.userImage.frame.size.width / 2
+        self.userImage.clipsToBounds = true
+        self.userImage.layer.borderWidth = 3.0
+        self.userImage.layer.borderColor = UIColor.whiteColor().CGColor
+        self.userImage.layer.cornerRadius = 10.0
+        
+        
+        
         checkRecordFriendship()
         if friendship == true {
             //friend display
@@ -73,12 +83,17 @@ class ProfileViewController: UIViewController {
         }
         
         
+        
        
         
 
 
         // Do any additional setup after loading the view.
     }
+    
+    
+    
+    
 
     func addOrRemoveFriend (friendship: Bool) {
         if friendship == true {

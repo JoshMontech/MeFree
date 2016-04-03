@@ -13,10 +13,7 @@ import Parse
 class ViewController: UIViewController {
     
     @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var settingsButton: UIButton!
-    @IBOutlet weak var friendsButton: UIButton!
-    @IBOutlet weak var meButton: UIButton!
-    
+
    
 
     
