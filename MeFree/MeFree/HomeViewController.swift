@@ -13,20 +13,18 @@ import Parse
 class ViewController: UIViewController {
     
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var friendsButton: UIButton!
+    @IBOutlet weak var meButton: UIButton!
+    
+   
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // Do any additional setup after loading the
         
-        
-        /*
-        let testObject = PFObject(className: "TestObject")
-        testObject["Herp"] = "Derp"
-        testObject.saveInBackgroundWithBlock { (success, error) -> Void in
-            print("Object has been saved.")
-        }
-        */
-
     }
     
     

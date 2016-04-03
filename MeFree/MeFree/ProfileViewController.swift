@@ -111,13 +111,13 @@ class ProfileViewController: UIViewController {
                 }
             })
  
-            print("attempt at fr query")
+            //print("attempt at fr query")
             let userCheckA = PFQuery(className: "FriendRequests")
             userCheckA.whereKey("fromUser", equalTo: PFUser.currentUser()!)
             userCheckA.whereKey("toUser", equalTo: profileUser!)
             
             
-            print("attempt at fr query")
+            //print("attempt at fr query")
             let userCheckB = PFQuery(className: "FriendRequests")
             userCheckB.whereKey("toUser", equalTo: PFUser.currentUser()!)
             userCheckB.whereKey("fromUser", equalTo: profileUser!)
@@ -129,9 +129,10 @@ class ProfileViewController: UIViewController {
             
             userCheckC.findObjectsInBackgroundWithBlock({ (objects, error) in
                 if objects!.count > 0 {
-                    print("this is request set to empty: \(objects)")
-                    objects![0]["requestStatus"] = ""
-                    objects![0].saveInBackground()
+                    for object in objects! {
+                        print ("this is friendshipRequest to be deleted: \(object)")
+                        object.deleteInBackground()
+                    }
                 }
             })
  
@@ -139,10 +140,12 @@ class ProfileViewController: UIViewController {
             
         } else {
             print("friend request updated")
+            //query finds
             var query = PFQuery(className: "FriendRequests")
             query.whereKey("fromUser", equalTo: PFUser.currentUser()!)
             query.whereKey("toUser", equalTo: profileUser!)
-            query.whereKey("requestStatus", equalTo: "requested")
+            //query.whereKey("requestStatus", equalTo: "requested")
+            //query.whereKey("requestStatus", equalTo: "")
             query.findObjectsInBackgroundWithBlock { (objects, error) in
                 if objects!.count == 0 {
                     var request = PFObject(className: "FriendRequests")

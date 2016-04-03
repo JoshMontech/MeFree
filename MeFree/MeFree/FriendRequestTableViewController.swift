@@ -95,8 +95,6 @@ class FriendRequestTableViewController: UITableViewController {
         request.saveInBackground()
     }
     
-
-    
     @IBAction func acceptFriendRequest(sender: UIButton) {
         //update DB
         
@@ -105,6 +103,8 @@ class FriendRequestTableViewController: UITableViewController {
         let userRelation = self.friendRequests[sender.tag]
         //print(self.friendRequests[sender.tag])
         updateStatus(userRelation, status: "confirmed")
+        
+        
         var createFriendship = PFObject(className: "Friendships")
         createFriendship["userA"] = PFUser.currentUser()
         createFriendship["userB"] = userRelation["fromUser"]
@@ -113,6 +113,8 @@ class FriendRequestTableViewController: UITableViewController {
         } catch {
             error
         }
+        
+        
         self.friendRequests.removeAtIndex(sender.tag)
         self.tableView.reloadData()
         appDelegate.updateFriendList()
