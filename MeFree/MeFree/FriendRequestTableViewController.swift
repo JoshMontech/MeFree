@@ -18,7 +18,7 @@ class FriendRequestTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
-        print("friendRequestViewWillAppear")
+        //debug - print("friendRequestViewWillAppear")
     }
  
 
@@ -30,7 +30,7 @@ class FriendRequestTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        var query = PFQuery(className: "FriendRequests")
+        let query = PFQuery(className: "FriendRequests")
         query.includeKey("fromUser")
         query.whereKey("toUser", equalTo: PFUser.currentUser()!)
         query.whereKey("requestStatus", equalTo: "requested")
@@ -74,11 +74,9 @@ class FriendRequestTableViewController: UITableViewController {
         cell.acceptButton.tag = indexPath.row
         cell.rejectButton.tag = indexPath.row
         
-        cell.acceptButton.addTarget(self, action: "acceptFriendRequest:", forControlEvents: .TouchUpInside)
+        cell.acceptButton.addTarget(self, action: #selector(FriendRequestTableViewController.acceptFriendRequest(_:)), forControlEvents: .TouchUpInside)
         
-        cell.rejectButton.addTarget(self, action: "rejectFriendRequest:", forControlEvents: .TouchUpInside)
-    
-        
+        cell.rejectButton.addTarget(self, action: #selector(FriendRequestTableViewController.rejectFriendRequest(_:)), forControlEvents: .TouchUpInside)
     
          //cell.titleLabel?.text = targetUser.username
         return cell
@@ -86,7 +84,7 @@ class FriendRequestTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //update requestStatus
-        print("update requeststatus")
+        //print("update requeststatus")
     }
     
     //updates friend status
@@ -98,14 +96,14 @@ class FriendRequestTableViewController: UITableViewController {
     @IBAction func acceptFriendRequest(sender: UIButton) {
         //update DB
         
-        print("Before accept: \(appDelegate.friendsOfUser)")
+        //debug - print("Before accept: \(appDelegate.friendsOfUser)")
         //print("acceptFriendRequest")
         let userRelation = self.friendRequests[sender.tag]
         //print(self.friendRequests[sender.tag])
         updateStatus(userRelation, status: "confirmed")
         
         
-        var createFriendship = PFObject(className: "Friendships")
+        let createFriendship = PFObject(className: "Friendships")
         createFriendship["userA"] = PFUser.currentUser()
         createFriendship["userB"] = userRelation["fromUser"]
         do {
@@ -118,7 +116,7 @@ class FriendRequestTableViewController: UITableViewController {
         self.friendRequests.removeAtIndex(sender.tag)
         self.tableView.reloadData()
         appDelegate.updateFriendList()
-        print("After accept: \(appDelegate.friendsOfUser)")
+        //debug - print("After accept: \(appDelegate.friendsOfUser)")
         //message prompt
         
         

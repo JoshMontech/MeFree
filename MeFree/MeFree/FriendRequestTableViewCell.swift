@@ -16,16 +16,7 @@ class FriendRequestTableViewCell: UITableViewCell {
     @IBOutlet weak var rejectButton: UIButton!
 
     @IBOutlet weak var nameLabel: UILabel!
-   /*
-    func requestStatus(approval: Bool) {
-        var query = PFQuery(className: "FriendRequests")
-        query.includeKey("fromUser")
-        query.whereKey("fromUser", equalTo: FriendRequestTableViewController.profileUser = profileUser
-)
-        query.whereKey("toUser", equalTo: PFUser.currentUser()!)
-        
-    }
-    */
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

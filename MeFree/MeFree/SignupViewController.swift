@@ -21,7 +21,7 @@ class SignupViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBAction func selectProfileImageButton(sender: AnyObject) {
         
-        var myPickerController = UIImagePickerController()
+        let myPickerController = UIImagePickerController()
         myPickerController.delegate = self
         myPickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         self.presentViewController(myPickerController, animated: true, completion: nil)
@@ -40,44 +40,44 @@ class SignupViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func signUpAction(sender: AnyObject) {
         
-        var username = self.usernameTextField.text
-        var password = self.passwordTextField.text
-        var pwConfirm = self.pwConfirmTextField.text
-        var email = self.emailTextField.text
-        var emailConfirm = self.emailConfirmTextField.text
-        var finalEmail =  email!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        let username = self.usernameTextField.text
+        let password = self.passwordTextField.text
+        let pwConfirm = self.pwConfirmTextField.text
+        let email = self.emailTextField.text
+        let emailConfirm = self.emailConfirmTextField.text
+        let finalEmail =  email!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         
         if username?.characters.count < 5 {
-            var alert = UIAlertView(title: "Invalid", message: "Username must be greater than 5 characters", delegate: self, cancelButtonTitle: "OK")
+            let alert = UIAlertView(title: "Invalid", message: "Username must be greater than 5 characters", delegate: self, cancelButtonTitle: "OK")
             alert.show()
             
         } else if password?.characters.count < 8 {
-            var alert = UIAlertView(title: "Invalid", message: "Password must be greater than 8 characters", delegate: self, cancelButtonTitle: "OK")
+            let alert = UIAlertView(title: "Invalid", message: "Password must be greater than 8 characters", delegate: self, cancelButtonTitle: "OK")
             alert.show()
             
         } else if password != pwConfirm {
-            var alert = UIAlertView(title: "Invalid", message: "Passwords do not match", delegate: self, cancelButtonTitle: "OK")
+            let alert = UIAlertView(title: "Invalid", message: "Passwords do not match", delegate: self, cancelButtonTitle: "OK")
             alert.show()
             
         } else if email != emailConfirm {
-            var alert = UIAlertView(title: "Invalid", message: "Emails do not match", delegate: self, cancelButtonTitle: "OK")
+            let alert = UIAlertView(title: "Invalid", message: "Emails do not match", delegate: self, cancelButtonTitle: "OK")
             alert.show()
             
         } else if email?.characters.count < 8 {
-            var alert = UIAlertView(title: "Invalid", message: "Please enter a valid email address", delegate: self, cancelButtonTitle: "OK")
+            let alert = UIAlertView(title: "Invalid", message: "Please enter a valid email address", delegate: self, cancelButtonTitle: "OK")
             alert.show()
             
         }  else {
             // Run a spinner to show a task in progress
-            var spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
+            let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
             spinner.startAnimating()
             
-            var newUser = PFUser()
+            let newUser = PFUser()
             
             let imageData = UIImageJPEGRepresentation(prfilePhotoImageView.image!, 0.05)
             let imageFile = PFFile(name:"image.jpg", data:imageData!)
             do {
-                let attempt = try imageFile!.save()
+                try imageFile!.save()
             } catch {
                 print(error)
             }
@@ -93,11 +93,11 @@ class SignupViewController: UIViewController, UIImagePickerControllerDelegate, U
                 // Stop the spinner
                 spinner.stopAnimating()
                 if ((error) != nil) {
-                    var alert = UIAlertView(title: "Error", message: "\(error)", delegate: self, cancelButtonTitle: "OK")
+                    let alert = UIAlertView(title: "Error", message: "\(error)", delegate: self, cancelButtonTitle: "OK")
                     alert.show()
                     
                 } else {
-                    var alert = UIAlertView(title: "Success", message: "Signed Up", delegate: self, cancelButtonTitle: "OK")
+                    let alert = UIAlertView(title: "Success", message: "Signed Up", delegate: self, cancelButtonTitle: "OK")
                     alert.show()
                     self.presentingViewController!.presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
                 }
@@ -110,7 +110,7 @@ class SignupViewController: UIViewController, UIImagePickerControllerDelegate, U
 
         // Do any additional setup after loading the view.
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SignupViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         prfilePhotoImageView.clipsToBounds = true
         prfilePhotoImageView.layer.borderWidth = 3.0

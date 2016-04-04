@@ -44,14 +44,14 @@ class UserSearchViewController: UIViewController, UITableViewDelegate, UISearchB
             //remove PFUser.currentUser from table display
             var count = 0
             for user in self.data {
-                print("loop")
+                //debug - print("loop")
                 if user.objectId == PFUser.currentUser()?.objectId {
                     self.data.removeAtIndex(count)
                 }
                 count = count+1
             }
             
-            print(self.data)
+            //debug - print(self.data)
             self.tableView.reloadData()
         }
         
@@ -72,7 +72,7 @@ class UserSearchViewController: UIViewController, UITableViewDelegate, UISearchB
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
+        let cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
 
         //if self.data != nil || self.data.count > 0 {
             let obj = self.data[indexPath.row]
@@ -88,7 +88,7 @@ class UserSearchViewController: UIViewController, UITableViewDelegate, UISearchB
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("You selected cell #\(indexPath.row)!")
+        //debug - print("You selected cell #\(indexPath.row)!")
         
         let profileUser = self.data[indexPath.row]
         

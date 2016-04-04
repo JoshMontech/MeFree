@@ -22,7 +22,7 @@ class FriendsTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         //self.tableView.reloadData()
-        print("FriendTableViewWillAppear")
+        //print("FriendTableViewWillAppear")
         
         let userCheckOne = PFQuery(className: "Friendships")
         userCheckOne.whereKey("userB", equalTo: PFUser.currentUser()!)
@@ -40,19 +40,19 @@ class FriendsTableViewController: UITableViewController {
             for object in objects! {
                 if var user = object["userA"] as? PFUser {
                     if user.objectId != PFUser.currentUser()?.objectId {
-                        print("appendA")
+                        //debug - print("appendA")
                         self.friendsOfUser.append(user)
                     } else {
                         user = (object["userB"] as? PFUser)!
                         if user.objectId != PFUser.currentUser()?.objectId {
-                            print("appendB")
+                            //debug - print("appendB")
                             self.friendsOfUser.append(user)
                         }
                     }
                 }
             }
-            print("friendsOfUser")
-            print(self.friendsOfUser)
+            //debug - print("friendsOfUser")
+            //debug - print(self.friendsOfUser)
             self.tableView.reloadData()
             
         }
@@ -120,7 +120,7 @@ class FriendsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
 
-        var friend = friendsOfUser[indexPath.row]
+        let friend = friendsOfUser[indexPath.row]
         var image : UIImage = UIImage(named: "red.jpg")!
         // Configure the cell...
         cell.textLabel?.text = friend.username

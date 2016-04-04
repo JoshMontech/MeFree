@@ -76,13 +76,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
 
-        //print(PFUser.currentUser())
+        //debug - print(PFUser.currentUser())
         
         //--------------------------------------
         // MARK: - friend / user Query
         //--------------------------------------
         if (PFUser.currentUser()?.objectId == "" || PFUser.currentUser()?.objectId == nil) {
-            print("no user")
+            //debug - print("no user")
             
         } else {
             updateFriendList()
@@ -134,7 +134,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         do {
             let results: [PFObject] = try userCheck.findObjects()
-            print("what updateFriendList finds \(results)")
+            //debut - print("what updateFriendList finds \(results)")
             for object in results {
                 if var user = object["userA"] as? PFUser {
                     if user.objectId != PFUser.currentUser()?.objectId {
@@ -152,34 +152,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch {
             print(error)
         }
-        
-        
-        /*
-        var objects = userCheck.findObjects() as [PFObject]
-            for object in objects! {
-                if var user = object["userA"] as? PFUser {
-                    if user.objectId != PFUser.currentUser()?.objectId {
-                        //print("appendA")
-                        self.friendsOfUser.append(user)
-                    } else {
-                        user = (object["userB"] as? PFUser)!
-                        if user.objectId != PFUser.currentUser()?.objectId {
-                            //print("appendB")
-                            self.friendsOfUser.append(user)
-                        }
-                    }
-                }
-            }
-            print("friendsOfUser")
-            print(self.friendsOfUser)
-        }
-        */
-
-        
     }
     
     func returnFriends() -> [PFUser] {
-        print("friends passed from returnFriends in app delegate: \(friendsOfUser)")
+        //debug - print("friends passed from returnFriends in app delegate: \(friendsOfUser)")
         return friendsOfUser
     }
     

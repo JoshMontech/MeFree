@@ -18,7 +18,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var friendButtonText: UIButton!
     
     @IBAction func friendInvite(sender: AnyObject) {
-        print(friendship)
+        //debug print(friendship)
         addOrRemoveFriend(friendship!)
         
     }
@@ -66,7 +66,7 @@ class ProfileViewController: UIViewController {
             //not friend display
             
             userEmail.text = ""
-            var query = PFQuery(className: "FriendRequests")
+            let query = PFQuery(className: "FriendRequests")
             query.whereKey("fromUser", equalTo: PFUser.currentUser()!)
             query.whereKey("toUser", equalTo: profileUser!)
             query.whereKey("requestStatus", equalTo: "requested")
@@ -97,7 +97,7 @@ class ProfileViewController: UIViewController {
 
     func addOrRemoveFriend (friendship: Bool) {
         if friendship == true {
-            print("friendship true")
+            //debug - print("friendship true")
             //remove friend
             //reload screen
             self.friendButtonText.hidden = true
@@ -117,7 +117,7 @@ class ProfileViewController: UIViewController {
             userCheck.findObjectsInBackgroundWithBlock({ (objects, error) in
                 if objects!.count > 0 {
                     for object in objects! {
-                        print ("this is friendship to be deleted: \(object)")
+                        //debug - print ("this is friendship to be deleted: \(object)")
                         object.deleteInBackground()
                         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                         appDelegate.updateFriendList()
@@ -145,7 +145,7 @@ class ProfileViewController: UIViewController {
             userCheckC.findObjectsInBackgroundWithBlock({ (objects, error) in
                 if objects!.count > 0 {
                     for object in objects! {
-                        print ("this is friendshipRequest to be deleted: \(object)")
+                        //debug - print ("this is friendshipRequest to be deleted: \(object)")
                         object.deleteInBackground()
                     }
                 }
@@ -154,16 +154,16 @@ class ProfileViewController: UIViewController {
             
             
         } else {
-            print("friend request updated")
+            //debug - print("friend request updated")
             //query finds
-            var query = PFQuery(className: "FriendRequests")
+            let query = PFQuery(className: "FriendRequests")
             query.whereKey("fromUser", equalTo: PFUser.currentUser()!)
             query.whereKey("toUser", equalTo: profileUser!)
             //query.whereKey("requestStatus", equalTo: "requested")
             //query.whereKey("requestStatus", equalTo: "")
             query.findObjectsInBackgroundWithBlock { (objects, error) in
                 if objects!.count == 0 {
-                    var request = PFObject(className: "FriendRequests")
+                    let request = PFObject(className: "FriendRequests")
                     request["fromUser"] = PFUser.currentUser()
                     request["toUser"] = self.profileUser
                     request["requestStatus"] = "requested"
@@ -182,7 +182,7 @@ class ProfileViewController: UIViewController {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.updateFriendList()
         let friends = appDelegate.returnFriends()
-        print("returnFriends: \(friends)")
+        //debug - print("returnFriends: \(friends)")
         if friends.count == 0 {
             friendship = false
         } else {
@@ -197,7 +197,7 @@ class ProfileViewController: UIViewController {
             }
         }
         
-        print("Friendship checked is \(friendship)")
+        //debug - print("Friendship checked is \(friendship)")
     }
 
     override func didReceiveMemoryWarning() {

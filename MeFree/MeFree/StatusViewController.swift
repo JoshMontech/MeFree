@@ -31,7 +31,7 @@ class StatusViewController: UIViewController {
     }
     
     func freeTriggered () {
-        print("free triggered")
+        //debug - print("free triggered")
         PFUser.currentUser()!["userStatus"] = "free"
          PFUser.currentUser()?.saveInBackground()
         
@@ -40,7 +40,7 @@ class StatusViewController: UIViewController {
     }
     
     func busyTriggered () {
-        print("busy triggered")
+        //debug - print("busy triggered")
         PFUser.currentUser()!["userStatus"] = "busy"
          PFUser.currentUser()?.saveInBackground()
         

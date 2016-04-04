@@ -17,68 +17,14 @@ class MeViewController: UIViewController, UIImagePickerControllerDelegate, UINav
     @IBOutlet weak var userStatusLabel: UILabel!
     @IBOutlet weak var userBlurbLabel: UILabel!
     @IBOutlet weak var userImageLabel: UIImageView!
-    @IBOutlet weak var switchOutlet: UISwitch!
-    
-    
-    
-    
-    @IBAction func switchTriggered(sender: AnyObject) {
-        if switchOutlet.on {
-            print("on")
-            PFUser.currentUser()!["userStatus"] = "free"
-            userStatusLabel.text = "free"
-        } else {
-            print("off")
-            PFUser.currentUser()!["userStatus"] = "busy"
-            userStatusLabel.text = "busy"
-        }
-        PFUser.currentUser()?.saveInBackground()
-    }
-  
-    @IBAction func updateImageButton(sender: AnyObject) {
-        
-        var myPickerController = UIImagePickerController()
-        myPickerController.delegate = self
-        myPickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        self.presentViewController(myPickerController, animated: true, completion: nil)
-        
-    }
-    
-    
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        
-        userImageLabel.image = info[UIImagePickerControllerOriginalImage] as? UIImage
-        userImageLabel.clipsToBounds = true
-        userImageLabel.layer.borderWidth = 3.0
-        userImageLabel.layer.borderColor = UIColor.whiteColor().CGColor
-        userImageLabel.layer.cornerRadius = 10.0
-        
-        self.dismissViewControllerAnimated(true, completion: nil)
-        
-        
-        
-        let imageData = UIImageJPEGRepresentation(userImageLabel.image!, 0.05)
-        let imageFile = PFFile(name:"image.jpg", data:imageData!)
-        do {
-            try imageFile!.save()
-        } catch {
-            print(error)
-        }
-        
-        PFUser.currentUser()!["userPhoto"] = imageFile
-        PFUser.currentUser()!.saveInBackground()
-    }
- 
-    
+    //@IBOutlet weak var switchOutlet: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        var user = PFUser.currentUser()
-        //user?["userBlurb"] = "I'm a cool college student"
-        //user?.saveInBackground()
+        let user = PFUser.currentUser()
+
         if let userName = user!.username {
             userNameLabel.text = userName
         }
@@ -108,8 +54,6 @@ class MeViewController: UIViewController, UIImagePickerControllerDelegate, UINav
                 }
             }
         }
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
