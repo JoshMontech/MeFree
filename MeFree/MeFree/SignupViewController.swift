@@ -50,6 +50,8 @@ class SignupViewController: UIViewController, UIImagePickerControllerDelegate, U
         let emailConfirm = self.emailConfirmTextField.text
         let finalEmail =  email!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         
+        
+        
         if username?.characters.count < 5 {
             let alert = UIAlertView(title: "Invalid", message: "Username must be greater than 5 characters", delegate: self, cancelButtonTitle: "OK")
             alert.show()

@@ -401,7 +401,7 @@
                                     <segue destination="C5Q-u2-DDG" kind="show" id="ipK-c5-v5M"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="F" id="S1P-XU-wjD">
+                            <barButtonItem title="Requests" id="S1P-XU-wjD">
                                 <connections>
                                     <segue destination="tPm-AX-X58" kind="show" id="9v7-b3-Ieu"/>
                                 </connections>

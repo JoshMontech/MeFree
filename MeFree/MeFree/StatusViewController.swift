@@ -35,7 +35,7 @@ class StatusViewController: UIViewController {
         PFUser.currentUser()!["userStatus"] = "free"
          PFUser.currentUser()?.saveInBackground()
         
-        backgroundColorChange(UIColor.greenColor())
+        backgroundColorChange(UIColor(colorLiteralRed: 8/255, green: 169/255, blue: 76/255, alpha: 1.0))
         userStatusLabel.text = "free"
     }
     
@@ -44,7 +44,7 @@ class StatusViewController: UIViewController {
         PFUser.currentUser()!["userStatus"] = "busy"
          PFUser.currentUser()?.saveInBackground()
         
-        backgroundColorChange(UIColor.redColor())
+        backgroundColorChange(UIColor(colorLiteralRed: 198/255, green: 38/255, blue: 48/255, alpha: 1.0))
         userStatusLabel.text = "busy"
     }
     
@@ -58,10 +58,10 @@ class StatusViewController: UIViewController {
             userStatusLabel.text = userStatus as? String
             if userStatusLabel.text == "free" {
                 switchOutlet.on = true
-                view.backgroundColor = UIColor.greenColor()
+                view.backgroundColor = UIColor(colorLiteralRed: 8/255, green: 169/255, blue: 76/255, alpha: 1.0)
             } else {
                 switchOutlet.on = false
-                view.backgroundColor = UIColor.redColor()
+                view.backgroundColor = UIColor(colorLiteralRed: 198/255, green: 38/255, blue: 48/255, alpha: 1.0)
             }
         }
     }
