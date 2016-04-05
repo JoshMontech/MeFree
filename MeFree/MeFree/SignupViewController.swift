@@ -11,6 +11,8 @@ import Parse
 
 class SignupViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    var picPicked = false
+    
     //outlets
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -35,6 +37,7 @@ class SignupViewController: UIViewController, UIImagePickerControllerDelegate, U
         prfilePhotoImageView.layer.borderWidth = 3.0
         prfilePhotoImageView.layer.borderColor = UIColor.whiteColor().CGColor
         prfilePhotoImageView.layer.cornerRadius = 10.0
+        picPicked = true
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -67,7 +70,11 @@ class SignupViewController: UIViewController, UIImagePickerControllerDelegate, U
             let alert = UIAlertView(title: "Invalid", message: "Please enter a valid email address", delegate: self, cancelButtonTitle: "OK")
             alert.show()
             
-        }  else {
+        } else if picPicked == false {
+            let alert = UIAlertView(title: "Invalid", message: "Please select a profile image", delegate: self, cancelButtonTitle: "OK")
+            alert.show()
+            
+        } else {
             // Run a spinner to show a task in progress
             let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
             spinner.startAnimating()

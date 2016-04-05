@@ -11,6 +11,8 @@ import Parse
 
 class ProfileSettingsTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
+    var photoPickerFlag = false
+    
     @IBOutlet weak var usernameText: UITextField!
  
     @IBOutlet weak var emailText: UITextField!
@@ -38,7 +40,7 @@ class ProfileSettingsTableViewController: UITableViewController, UIImagePickerCo
             let alert = UIAlertView(title: "Invalid", message: "Username must be > 5 and < 25 characters", delegate: self, cancelButtonTitle: "OK")
             alert.show()
             
-        } else if email?.characters.count < 8 || email? .characters.count > 25 {
+        } else if email?.characters.count < 8 || email? .characters.count > 40 {
             let alert = UIAlertView(title: "Invalid", message: "Please enter a valid email address", delegate: self, cancelButtonTitle: "OK")
             alert.show()
             
@@ -59,7 +61,7 @@ class ProfileSettingsTableViewController: UITableViewController, UIImagePickerCo
                 print(error)
             }
             
-            user?["userImage"] = imageFile
+            user?["userPhoto"] = imageFile
             user?.username = username
             user?.email = email
             user?["userBlurb"] = blurb
@@ -86,13 +88,17 @@ class ProfileSettingsTableViewController: UITableViewController, UIImagePickerCo
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
+        print("didFinishpicking")
         image.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         image.clipsToBounds = true
         image.layer.borderWidth = 3.0
         image.layer.borderColor = UIColor.whiteColor().CGColor
         image.layer.cornerRadius = 10.0
-        
+        //self.tableView.reloadData()
+        photoPickerFlag = true
         self.dismissViewControllerAnimated(true, completion: nil)
+        
+        
         
     }
     
@@ -124,18 +130,24 @@ class ProfileSettingsTableViewController: UITableViewController, UIImagePickerCo
         self.usernameText.text = user?.username
         self.emailText.text = user?.email
         self.blurbText.text = user?["userBlurb"] as? String
-        
-        if let userPicture = user?["userPhoto"] as? PFFile {
-            userPicture.getDataInBackgroundWithBlock { (imageData: NSData?, error: NSError?) -> Void in
-                if (error == nil) {
-                    self.image.image = UIImage(data:imageData!)
-                    self.image.clipsToBounds = true
-                    self.image.layer.borderWidth = 3.0
-                    self.image.layer.borderColor = UIColor.whiteColor().CGColor
-                    self.image.layer.cornerRadius = 10.0
+        if photoPickerFlag == false {
+            
+            if let userPicture = user?["userPhoto"] as? PFFile {
+                userPicture.getDataInBackgroundWithBlock { (imageData: NSData?, error: NSError?) -> Void in
+                    if (error == nil) {
+                        self.image.image = UIImage(data:imageData!)
+                        self.image.clipsToBounds = true
+                        self.image.layer.borderWidth = 3.0
+                        self.image.layer.borderColor = UIColor.whiteColor().CGColor
+                        self.image.layer.cornerRadius = 10.0
+                    }
                 }
             }
+            
+        } else {
+            photoPickerFlag = true
         }
+        
     }
 
     override func didReceiveMemoryWarning() {

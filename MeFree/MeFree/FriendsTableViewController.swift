@@ -127,7 +127,7 @@ class FriendsTableViewController: UITableViewController {
 
         
         //if free, display green image
-        if (friend["userStatus"] as! String == "free") {
+        if (friend["userStatus"] as? String == "free") {
             image = UIImage(named: "green.jpg")!
         //if busy display red image
         }
