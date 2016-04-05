@@ -126,11 +126,12 @@ class ProfileSettingsTableViewController: UITableViewController, UIImagePickerCo
         super.viewWillAppear(animated)
         
         
-        let user = PFUser.currentUser()
-        self.usernameText.text = user?.username
-        self.emailText.text = user?.email
-        self.blurbText.text = user?["userBlurb"] as? String
+
         if photoPickerFlag == false {
+            let user = PFUser.currentUser()
+            self.usernameText.text = user?.username
+            self.emailText.text = user?.email
+            self.blurbText.text = user?["userBlurb"] as? String
             
             if let userPicture = user?["userPhoto"] as? PFFile {
                 userPicture.getDataInBackgroundWithBlock { (imageData: NSData?, error: NSError?) -> Void in
