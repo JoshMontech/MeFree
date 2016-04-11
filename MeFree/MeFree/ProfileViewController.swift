@@ -14,7 +14,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var userEmail: UILabel!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userImage: UIImageView!
-    
+    @IBOutlet weak var userBlurb: UILabel!
     @IBOutlet weak var friendButtonText: UIButton!
     
     @IBAction func friendInvite(sender: AnyObject) {
@@ -55,6 +55,7 @@ class ProfileViewController: UIViewController {
             //friend display
             
             userEmail.text = profileUser?.email
+            userBlurb.text = profileUser?["userBlurb"] as? String
             friendButtonText.setTitle("Remove Friend", forState: .Normal)
             //userblurb
             //userphoto

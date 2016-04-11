@@ -241,6 +241,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="friendButtonText" destination="5le-aK-cSW" id="6mb-nv-aEd"/>
+                        <outlet property="userBlurb" destination="o2X-CC-Zdy" id="d8D-kP-RSo"/>
                         <outlet property="userEmail" destination="5nZ-Q4-Omh" id="jjP-xx-mbz"/>
                         <outlet property="userImage" destination="vvH-t7-KIU" id="B8D-6h-hOi"/>
                         <outlet property="userName" destination="1FE-d4-IlZ" id="3er-1d-A7N"/>
