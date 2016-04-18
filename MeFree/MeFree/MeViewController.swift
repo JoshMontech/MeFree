@@ -50,7 +50,7 @@ class MeViewController: UIViewController, UIImagePickerControllerDelegate, UINav
                     self.userImageLabel.clipsToBounds = true
                     self.userImageLabel.layer.borderWidth = 3.0
                     self.userImageLabel.layer.borderColor = UIColor.whiteColor().CGColor
-                    self.userImageLabel.layer.cornerRadius = 10.0
+                    self.userImageLabel.layer.cornerRadius = self.userImageLabel.frame.size.width / 2
                 }
             }
         }

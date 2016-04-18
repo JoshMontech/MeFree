@@ -372,21 +372,40 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="PGb-wE-6hd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.47843137250000001" green="0.74117647060000003" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" id="SGa-zE-Lho">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" id="SGa-zE-Lho" customClass="FriendTableViewCell" customModule="MeFree" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="113.5" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SGa-zE-Lho" id="GQg-tJ-JrV">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7kb-Um-BUB">
-                                            <rect key="frame" x="8" y="0.0" width="142" height="43.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLB-UW-o7z">
+                                            <rect key="frame" x="59" y="11" width="228" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7kb-Um-BUB">
+                                            <rect key="frame" x="8" y="4" width="37" height="35.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="37" id="MSx-fT-nDr"/>
+                                                <constraint firstAttribute="height" constant="35.5" id="dSN-bw-1H5"/>
+                                            </constraints>
                                         </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="7kb-Um-BUB" firstAttribute="leading" secondItem="GQg-tJ-JrV" secondAttribute="leading" constant="8" id="7cz-02-zvR"/>
+                                        <constraint firstAttribute="bottom" secondItem="7kb-Um-BUB" secondAttribute="bottom" constant="4" id="eEj-rE-lvE"/>
+                                        <constraint firstItem="7kb-Um-BUB" firstAttribute="top" secondItem="GQg-tJ-JrV" secondAttribute="top" constant="4" id="kCF-dO-JNt"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.92549019610000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="cellImage" destination="7kb-Um-BUB" id="4oS-Z1-tI0"/>
+                                    <outlet property="cellUsername" destination="ZLB-UW-o7z" id="HDs-Ly-U1t"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

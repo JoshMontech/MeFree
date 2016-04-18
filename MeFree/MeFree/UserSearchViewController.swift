@@ -91,7 +91,7 @@ class UserSearchViewController: UIViewController, UITableViewDelegate, UISearchB
         //debug - print("You selected cell #\(indexPath.row)!")
         
         let profileUser = self.data[indexPath.row]
-        
+        print(profileUser)
         
         
         //if friend, profile view

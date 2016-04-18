@@ -46,7 +46,7 @@ class ProfileViewController: UIViewController {
         self.userImage.clipsToBounds = true
         self.userImage.layer.borderWidth = 3.0
         self.userImage.layer.borderColor = UIColor.whiteColor().CGColor
-        self.userImage.layer.cornerRadius = 10.0
+        self.userImage.layer.cornerRadius = self.userImage.frame.size.width / 2
         
         
         

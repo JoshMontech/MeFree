@@ -10,8 +10,10 @@ import UIKit
 import Parse
 
 class FriendTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var cellImage: UIView!
+   
+    @IBOutlet weak var cellImage: UIImageView!
+    @IBOutlet weak var cellUsername: UILabel!
+   
     
     override func awakeFromNib() {
         super.awakeFromNib()
