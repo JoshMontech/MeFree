@@ -72,11 +72,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MeFree/ProfileViewController.swift"
-            timestampString = "482865075.7628"
+            timestampString = "483052347.367493"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "198"
-            endingLineNumber = "198"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
             landmarkName = "addOrRemoveFriend(_:)"
             landmarkType = "5">
             <Locations>

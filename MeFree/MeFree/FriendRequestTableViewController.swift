@@ -12,7 +12,7 @@ import Parse
 class FriendRequestTableViewController: UITableViewController {
     
     var friendRequests = [PFObject]()
-    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    //let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
     
     override func viewWillAppear(animated: Bool) {
@@ -106,16 +106,26 @@ class FriendRequestTableViewController: UITableViewController {
         let createFriendship = PFObject(className: "Friendships")
         createFriendship["userA"] = PFUser.currentUser()
         createFriendship["userB"] = userRelation["fromUser"]
+        /*
         do {
             try createFriendship.save()
         } catch {
             error
         }
+        */
+        createFriendship.saveInBackgroundWithBlock { (status, error) in
+            if status == true {
+                self.friendRequests.removeAtIndex(sender.tag)
+                self.tableView.reloadData()
+            } else {
+                print(error)
+            }
+        }
         
         
-        self.friendRequests.removeAtIndex(sender.tag)
-        self.tableView.reloadData()
-        appDelegate.updateFriendList()
+        //self.friendRequests.removeAtIndex(sender.tag)
+        //self.tableView.reloadData()
+        //appDelegate.updateFriendList()
         //debug - print("After accept: \(appDelegate.friendsOfUser)")
         //message prompt
         

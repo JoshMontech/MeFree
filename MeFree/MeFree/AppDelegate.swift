@@ -85,7 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //debug - print("no user")
             
         } else {
-            updateFriendList()
+            //updateFriendList()
         }
 
         
