@@ -33,7 +33,6 @@
 		D0D8F3C51CB0A4770095CD11 /* me.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D0D8F3C21CB0A4770095CD11 /* me.jpg */; };
 		D0D8F3CC1CB1CF8A0095CD11 /* status.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D0D8F3CB1CB1CF8A0095CD11 /* status.jpg */; };
 		D0D8F3CE1CB1CFE00095CD11 /* friends.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D0D8F3CD1CB1CFE00095CD11 /* friends.jpg */; };
-		D0D8F3D01CB1D29B0095CD11 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D8F3CF1CB1D29B0095CD11 /* TableViewController.swift */; };
 		D0D8F3D21CB2262F0095CD11 /* ProfileSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D8F3D11CB2262F0095CD11 /* ProfileSettingsTableViewController.swift */; };
 		D0D8F3D51CB33C560095CD11 /* red.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D0D8F3D31CB33C560095CD11 /* red.jpg */; };
 		D0D8F3D61CB33C560095CD11 /* green.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D0D8F3D41CB33C560095CD11 /* green.jpg */; };
@@ -70,7 +69,6 @@
 		D0D8F3C21CB0A4770095CD11 /* me.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = me.jpg; sourceTree = "<group>"; };
 		D0D8F3CB1CB1CF8A0095CD11 /* status.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = status.jpg; sourceTree = "<group>"; };
 		D0D8F3CD1CB1CFE00095CD11 /* friends.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = friends.jpg; sourceTree = "<group>"; };
-		D0D8F3CF1CB1D29B0095CD11 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		D0D8F3D11CB2262F0095CD11 /* ProfileSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSettingsTableViewController.swift; sourceTree = "<group>"; };
 		D0D8F3D31CB33C560095CD11 /* red.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = red.jpg; sourceTree = "<group>"; };
 		D0D8F3D41CB33C560095CD11 /* green.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = green.jpg; sourceTree = "<group>"; };
@@ -144,7 +142,6 @@
 				D0D8F3A71CACAE0E0095CD11 /* FriendRequestTableViewController.swift */,
 				D0D8F3A91CACB8010095CD11 /* FriendRequestTableViewCell.swift */,
 				D0582F9B1CA27AFA00931EED /* mefree.jpg */,
-				D0D8F3CF1CB1D29B0095CD11 /* TableViewController.swift */,
 				D0D8F3D11CB2262F0095CD11 /* ProfileSettingsTableViewController.swift */,
 			);
 			path = MeFree;
@@ -254,7 +251,6 @@
 			files = (
 				D0582F9E1CA37B7100931EED /* MeViewController.swift in Sources */,
 				D0D8F3A81CACAE0E0095CD11 /* FriendRequestTableViewController.swift in Sources */,
-				D0D8F3D01CB1D29B0095CD11 /* TableViewController.swift in Sources */,
 				D0582F981CA20C8600931EED /* LoginViewController.swift in Sources */,
 				D0D8F3B01CB095F80095CD11 /* FriendTableViewCell.swift in Sources */,
 				D0582FB41CAA08A600931EED /* UserSearchViewController.swift in Sources */,

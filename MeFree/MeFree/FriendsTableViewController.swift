@@ -56,41 +56,6 @@ class FriendsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        /*
-        let userCheckOne = PFQuery(className: "Friendships")
-        userCheckOne.whereKey("userB", equalTo: PFUser.currentUser()!)
-        
-        let userCheckTwo = PFQuery(className: "Friendships")
-        userCheckTwo.whereKey("userA", equalTo: PFUser.currentUser()!)
-        
-        let userCheck = PFQuery.orQueryWithSubqueries([userCheckOne, userCheckTwo])
-        userCheck.includeKey("userA")
-        userCheck.includeKey("userB")
-        userCheck.findObjectsInBackgroundWithBlock { (objects, error) in
-
-    
-            for object in objects! {
-                if var user = object["userA"] as? PFUser {
-                    if user.objectId != PFUser.currentUser()?.objectId {
-                        print("appendA")
-                        self.friendsOfUser.append(user)
-                    } else {
-                        user = (object["userB"] as? PFUser)!
-                        if user.objectId != PFUser.currentUser()?.objectId {
-                            print("appendB")
-                            self.friendsOfUser.append(user)
-                        }
-                    }
-                }
-            }
-            print("friendsOfUser")
-            print(self.friendsOfUser)
-            self.tableView.reloadData()
- 
-        }
-         */
-
-   
     }
 
     override func didReceiveMemoryWarning() {

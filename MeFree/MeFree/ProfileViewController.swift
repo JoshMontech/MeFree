@@ -30,7 +30,7 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
- 
+ /*
         userName.text = profileUser!.username
         if let userPicture = profileUser?["userPhoto"] as? PFFile {
             userPicture.getDataInBackgroundWithBlock { (imageData: NSData?, error: NSError?) -> Void in
@@ -82,17 +82,68 @@ class ProfileViewController: UIViewController {
             //userphoto
             
         }
-        
-        
-        
-       
-        
-
+        */
 
         // Do any additional setup after loading the view.
     }
     
-    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //query for friendship
+        userName.text = profileUser!.username
+        if let userPicture = profileUser?["userPhoto"] as? PFFile {
+            userPicture.getDataInBackgroundWithBlock { (imageData: NSData?, error: NSError?) -> Void in
+                if (error == nil) {
+                    self.userImage.image = UIImage(data:imageData!)
+                }
+            }
+        }
+        
+        
+        
+        // self.userImage.layer.cornerRadius = self.userImage.frame.size.width / 2
+        self.userImage.clipsToBounds = true
+        self.userImage.layer.borderWidth = 3.0
+        self.userImage.layer.borderColor = UIColor.whiteColor().CGColor
+        self.userImage.layer.cornerRadius = self.userImage.frame.size.width / 2
+        
+        
+        
+        checkRecordFriendship()
+        if friendship == true {
+            //friend display
+            
+            userEmail.text = profileUser?.email
+            userBlurb.text = profileUser?["userBlurb"] as? String
+            friendButtonText.setTitle("Remove Friend", forState: .Normal)
+            //userblurb
+            //userphoto
+            //sendrequest
+            
+            //display friend uninvite button
+            
+        } else {
+            //not friend display
+            
+            userEmail.text = ""
+            let query = PFQuery(className: "FriendRequests")
+            query.whereKey("fromUser", equalTo: PFUser.currentUser()!)
+            query.whereKey("toUser", equalTo: profileUser!)
+            query.whereKey("requestStatus", equalTo: "requested")
+            query.findObjectsInBackgroundWithBlock({ (objects, error) in
+                if objects!.count == 0 {
+                    self.friendButtonText.setTitle("Send Friend Request", forState: .Normal)
+                } else {
+                    self.friendButtonText.hidden = true
+                }
+            })
+            
+            //userphoto
+            
+        }
+        
+    }
     
     
 
@@ -120,6 +171,7 @@ class ProfileViewController: UIViewController {
                     for object in objects! {
                         //debug - print ("this is friendship to be deleted: \(object)")
                         object.deleteInBackground()
+                        // !!!!!!---experimental comment---!!!!!!
                         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                         appDelegate.updateFriendList()
 
@@ -179,6 +231,7 @@ class ProfileViewController: UIViewController {
     func checkRecordFriendship () {
         //print("friends received in profile view from app delegate\(friends)")
         //query to check if user and other user are friends
+        
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.updateFriendList()
