@@ -10,26 +10,90 @@
 import UIKit
 import Parse
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIPopoverPresentationControllerDelegate {
     
+    @IBOutlet weak var statusButton: UIButton!
     @IBOutlet weak var usernameLabel: UILabel!
 
+    @IBOutlet weak var usernamePhoto: UIImageView!
    
+    @IBOutlet weak var homeSubview: UIView!
 
+    @IBAction func buttonPressed(sender: AnyObject) {
+       
+        self.performSegueWithIdentifier("showView", sender: self)
+        
+    }
     
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showView" {
+            let vc = segue.destinationViewController
+            if #available(iOS 8.0, *) {
+                let controller = vc.popoverPresentationController
+                if controller != nil {
+                    controller?.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+                    controller?.delegate = self
+                    
+                }
+            } else {
+                // Fallback on earlier versions
+            }
+        }
+    }
+    
+    @available(iOS 8.0, *)
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .None
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.loadList(_:)),name:"load", object: nil)
+        //statusButton.backgroundColor = UIColor.clearColor()
+        statusButton.layer.cornerRadius = 5
+        statusButton.layer.borderWidth = 1
+        statusButton.layer.borderColor = UIColor.blackColor().CGColor
         
     }
     
+    func loadList(notification: NSNotification){
+        //load data here
+        self.viewWillAppear(true)
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
         if let pUserName = PFUser.currentUser()?["username"] as? String {
             self.usernameLabel.text = "Welcome @" + pUserName
         }
+        
+    
+        if let userPicture = PFUser.currentUser()?["userPhoto"] as? PFFile {
+            userPicture.getDataInBackgroundWithBlock { (imageData: NSData?, error: NSError?) -> Void in
+                if (error == nil) {
+                    self.usernamePhoto.image = UIImage(data:imageData!)
+                    self.usernamePhoto.clipsToBounds = true
+                    self.usernamePhoto.layer.borderWidth = 6.0
+                    if PFUser.currentUser()!["userStatus"] as! String == "free" {
+                        //self.homeSubview.backgroundColor = UIColor(red: 34/255, green: 238/255, blue: 91/255, alpha: 1/3)
+                        self.usernamePhoto.layer.borderColor = UIColor.greenColor().CGColor
+                    } else {
+                        //self.homeSubview.backgroundColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1/3)
+                        self.usernamePhoto.layer.borderColor = UIColor.redColor().CGColor
+                        
+                    }
+                    //self.usernamePhoto.layer.borderColor = UIColor.whiteColor().CGColor
+                    self.usernamePhoto.layer.cornerRadius = self.usernamePhoto.frame.size.width / 2
+                }
+            }
+        }
+        
+
+        
+        
     }
     
     override func viewDidAppear(animated: Bool) {

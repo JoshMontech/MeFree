@@ -55,7 +55,7 @@ class FriendsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
 
     override func didReceiveMemoryWarning() {
@@ -91,8 +91,20 @@ class FriendsTableViewController: UITableViewController {
                     
                     cell.cellImage.layer.cornerRadius = cell.cellImage.frame.size.width / 2
                     cell.cellImage.clipsToBounds = true
-                    cell.cellImage.layer.borderWidth = 1.0
-                    cell.cellImage.layer.borderColor = UIColor.whiteColor().CGColor
+                    cell.cellImage.layer.borderWidth = 2.0
+                    //cell.cellImage.layer.borderColor = UIColor.whiteColor().CGColor
+                    if (friend["userStatus"] as? String == "free") {
+                        //image = UIImage(named: "green.jpg")!
+                        //cell.backgroundColor = UIColor(red: 217/255, green: 247/255, blue: 187/255, alpha: 1/2)
+                        cell.cellImage.layer.borderColor = UIColor(red: 34/255, green: 238/255, blue: 91/255, alpha: 1.0).CGColor
+                        //34, 238, 91
+                        //cell.alpha = 1/2
+                        
+                        
+                        //if busy display red image
+                    } else {
+                        cell.cellImage.layer.borderColor = UIColor(red: 255/255, green: 0, blue: 0, alpha: 1.0).CGColor
+                    }
                     
                 }
             }
@@ -101,22 +113,23 @@ class FriendsTableViewController: UITableViewController {
         // Configure the cell...
         //cell.textLabel?.text = friend.username
         cell.cellUsername.text = friend.username
-        cell.backgroundColor = UIColor(red: 255/255, green: 0, blue: 0, alpha: 1/3)
+        cell.cellStatus.text = friend["userStatusText"] as? String
+        //cell.backgroundColor = UIColor(red: 255/255, green: 0, blue: 0, alpha: 1/3)
         //cell.backgroundColor?.colorWithAlphaComponent(1/2)
         //cell.backgroundColor = UIColor(red: 255/255, green: 205/255, blue: 204/255, alpha: 1/2)
 
         
         //if free, display green image
-        if (friend["userStatus"] as? String == "free") {
+        //if (friend["userStatus"] as? String == "free") {
             //image = UIImage(named: "green.jpg")!
             //cell.backgroundColor = UIColor(red: 217/255, green: 247/255, blue: 187/255, alpha: 1/2)
-            cell.backgroundColor = UIColor(red: 34/255, green: 238/255, blue: 91/255, alpha: 1/3)
+            //cell.backgroundColor = UIColor(red: 34/255, green: 238/255, blue: 91/255, alpha: 1/3)
             //34, 238, 91
             //cell.alpha = 1/2
 
             
         //if busy display red image
-        }
+        //}
         
         //cell.imageView!.image = image
         

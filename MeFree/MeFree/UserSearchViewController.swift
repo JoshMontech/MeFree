@@ -24,6 +24,7 @@ class UserSearchViewController: UIViewController, UITableViewDelegate, UISearchB
         super.viewDidLoad()
         
         search()
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
 
     override func didReceiveMemoryWarning() {

@@ -102,7 +102,15 @@ class ProfileViewController: UIViewController {
         // self.userImage.layer.cornerRadius = self.userImage.frame.size.width / 2
         self.userImage.clipsToBounds = true
         self.userImage.layer.borderWidth = 3.0
-        self.userImage.layer.borderColor = UIColor.whiteColor().CGColor
+        if friendship == true {
+            if profileUser!["userStatus"] as! String == "free" {
+                self.userImage.layer.borderColor = UIColor.greenColor().CGColor
+            } else {
+                self.userImage.layer.borderColor = UIColor.redColor().CGColor
+            }
+        } else {
+            self.userImage.layer.borderColor = UIColor.whiteColor().CGColor
+        }
         self.userImage.layer.cornerRadius = self.userImage.frame.size.width / 2
     }
     

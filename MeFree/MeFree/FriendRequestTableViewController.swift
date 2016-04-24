@@ -44,7 +44,9 @@ class FriendRequestTableViewController: UITableViewController {
             //print(self.userFollowing)
             //print(self.userFollowingArr[0].username)
             self.tableView.reloadData()
+            
         }
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
 
     override func didReceiveMemoryWarning() {

@@ -36,7 +36,7 @@ class SignupViewController: UIViewController, UIImagePickerControllerDelegate, U
         prfilePhotoImageView.clipsToBounds = true
         prfilePhotoImageView.layer.borderWidth = 3.0
         prfilePhotoImageView.layer.borderColor = UIColor.whiteColor().CGColor
-        prfilePhotoImageView.layer.cornerRadius = 10.0
+        prfilePhotoImageView.layer.cornerRadius = prfilePhotoImageView.frame.size.width / 2
         picPicked = true
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -121,10 +121,11 @@ class SignupViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SignupViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
+        prfilePhotoImageView.image = UIImage(named: "smile.png")
         prfilePhotoImageView.clipsToBounds = true
         prfilePhotoImageView.layer.borderWidth = 3.0
         prfilePhotoImageView.layer.borderColor = UIColor.whiteColor().CGColor
-        prfilePhotoImageView.layer.cornerRadius = 10.0
+        prfilePhotoImageView.layer.cornerRadius = prfilePhotoImageView.frame.size.width / 2
     }
     
     func dismissKeyboard() {
