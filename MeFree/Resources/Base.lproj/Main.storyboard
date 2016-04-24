@@ -126,21 +126,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="200" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BJM-q8-qh8">
-                                <rect key="frame" x="76" y="224" width="51" height="31"/>
-                                <connections>
-                                    <action selector="switchTriggered:" destination="SZh-Qj-5e1" eventType="valueChanged" id="MAR-xZ-ZOJ"/>
-                                </connections>
-                            </switch>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ct-Ma-s3x">
-                                <rect key="frame" x="76" y="271" width="48" height="30"/>
-                                <state key="normal" title="update">
-                                    <color key="titleColor" red="0.20784313730000001" green="0.57254901960000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="dismiss:" destination="SZh-Qj-5e1" eventType="touchUpInside" id="d2q-oc-CLb"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IyF-iG-GkF">
                                 <rect key="frame" x="20" y="186" width="160" height="30"/>
                                 <constraints>
@@ -149,13 +134,41 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BJM-q8-qh8">
+                                <rect key="frame" x="76" y="224" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchTriggered:" destination="SZh-Qj-5e1" eventType="valueChanged" id="MAR-xZ-ZOJ"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update your Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SFJ-nr-N6M">
+                                <rect key="frame" x="16" y="157" width="168" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ct-Ma-s3x">
+                                <rect key="frame" x="64" y="271" width="73" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="adF-PC-lU5"/>
+                                    <constraint firstAttribute="width" constant="73" id="syL-Db-HeM"/>
+                                </constraints>
+                                <state key="normal" title="update">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismiss:" destination="SZh-Qj-5e1" eventType="touchUpInside" id="d2q-oc-CLb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="0Ct-Ma-s3x" firstAttribute="centerX" secondItem="0Nu-4X-rrK" secondAttribute="centerX" id="7Sb-tZ-Jvq"/>
                             <constraint firstItem="BJM-q8-qh8" firstAttribute="centerX" secondItem="0Nu-4X-rrK" secondAttribute="centerX" id="8Nc-XA-Kbc"/>
+                            <constraint firstItem="SFJ-nr-N6M" firstAttribute="trailing" secondItem="0Nu-4X-rrK" secondAttribute="trailingMargin" id="IfC-Ta-2ni"/>
                             <constraint firstAttribute="trailing" secondItem="IyF-iG-GkF" secondAttribute="trailing" constant="20" id="Naf-s3-6M4"/>
                             <constraint firstItem="IyF-iG-GkF" firstAttribute="leading" secondItem="0Nu-4X-rrK" secondAttribute="leading" constant="20" id="PP0-rM-A6B"/>
+                            <constraint firstItem="IyF-iG-GkF" firstAttribute="top" secondItem="SFJ-nr-N6M" secondAttribute="bottom" constant="8" id="T1j-Fg-uzq"/>
+                            <constraint firstItem="SFJ-nr-N6M" firstAttribute="leading" secondItem="0Nu-4X-rrK" secondAttribute="leadingMargin" id="WI6-dW-374"/>
                             <constraint firstItem="BJM-q8-qh8" firstAttribute="top" secondItem="IyF-iG-GkF" secondAttribute="bottom" constant="8" id="aRa-jU-pPY"/>
                             <constraint firstItem="BJM-q8-qh8" firstAttribute="centerY" secondItem="0Nu-4X-rrK" secondAttribute="centerY" id="lCC-PC-K5G"/>
                             <constraint firstItem="0Ct-Ma-s3x" firstAttribute="top" secondItem="BJM-q8-qh8" secondAttribute="bottom" constant="16" id="tlz-tR-tSc"/>
@@ -165,6 +178,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="200" height="480"/>
                     <connections>
+                        <outlet property="button" destination="0Ct-Ma-s3x" id="N64-Mn-qu1"/>
                         <outlet property="statusSwitch" destination="BJM-q8-qh8" id="Ltm-yI-E60"/>
                         <outlet property="statusText" destination="IyF-iG-GkF" id="qdl-g2-UrM"/>
                     </connections>

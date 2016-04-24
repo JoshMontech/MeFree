@@ -49,7 +49,14 @@ class MeViewController: UIViewController, UIImagePickerControllerDelegate, UINav
                     self.userImageLabel.image = UIImage(data:imageData!)
                     self.userImageLabel.clipsToBounds = true
                     self.userImageLabel.layer.borderWidth = 3.0
-                    self.userImageLabel.layer.borderColor = UIColor.whiteColor().CGColor
+                    let status =  user?["userStatus"] as! String
+                    if status == "free" {
+                        self.userImageLabel.layer.borderColor = UIColor.greenColor().CGColor
+                    } else {
+                        self.userImageLabel.layer.borderColor = UIColor.redColor().CGColor
+
+                    }
+                    //self.userImageLabel.layer.borderColor = UIColor.whiteColor().CGColor
                     self.userImageLabel.layer.cornerRadius = self.userImageLabel.frame.size.width / 2
                 }
             }
