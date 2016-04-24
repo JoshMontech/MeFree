@@ -292,7 +292,7 @@ class ProfileViewController: UIViewController {
             if objects!.count > 0 {
                 print("friendship == true")
                 self.friendship = true
-                self.userEmail.text = self.profileUser?.email
+                self.userEmail.text = self.profileUser?["userStatusText"] as? String
                 self.userBlurb.text = self.profileUser?["userBlurb"] as? String
                 self.friendButtonText.setTitle("Remove Friend", forState: .Normal)
                 

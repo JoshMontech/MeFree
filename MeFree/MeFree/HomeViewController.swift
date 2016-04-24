@@ -52,9 +52,9 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate 
         // Do any additional setup after loading the
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.loadList(_:)),name:"load", object: nil)
         //statusButton.backgroundColor = UIColor.clearColor()
-        statusButton.layer.cornerRadius = 5
-        statusButton.layer.borderWidth = 1
-        statusButton.layer.borderColor = UIColor.blackColor().CGColor
+        statusButton.layer.cornerRadius = 10
+        //statusButton.layer.borderWidth = 1
+        //statusButton.layer.borderColor = UIColor.blackColor().CGColor
         
     }
     

@@ -19,9 +19,12 @@ class ProfileSettingsTableViewController: UITableViewController, UIImagePickerCo
     
     @IBOutlet weak var blurbText: UITextField!
     
+    @IBOutlet weak var firstNameText: UITextField!
     @IBOutlet weak var image: UIImageView!
 
+    @IBOutlet weak var lastNameText: UITextField!
     
+    @IBOutlet weak var ageText: UITextField!
     
     @IBAction func imageSelectClicked(sender: AnyObject) {
         let myPickerController = UIImagePickerController()
@@ -35,6 +38,9 @@ class ProfileSettingsTableViewController: UITableViewController, UIImagePickerCo
         let username = self.usernameText.text
         let email = self.emailText.text
         let blurb = self.blurbText.text
+        let firstName = self.firstNameText.text
+        let lastName = self.lastNameText.text
+        let age = self.ageText.text
         
         if username?.characters.count < 5 || username?.characters.count > 25 {
             let alert = UIAlertView(title: "Invalid", message: "Username must be > 5 and < 25 characters", delegate: self, cancelButtonTitle: "OK")
@@ -47,7 +53,7 @@ class ProfileSettingsTableViewController: UITableViewController, UIImagePickerCo
         } else if blurb?.characters.count > 100 {
             let alert = UIAlertView(title: "Invalid", message: "Please enter a blurb with 100 or less characters", delegate: self, cancelButtonTitle: "OK")
             alert.show()
-        } else {
+        }  else {
             let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
             spinner.startAnimating()
             
@@ -65,6 +71,9 @@ class ProfileSettingsTableViewController: UITableViewController, UIImagePickerCo
             user?.username = username
             user?.email = email
             user?["userBlurb"] = blurb
+            user?["userFirstName"] = firstName
+            user?["userLastName"] = lastName
+            user?["userAge"] = age
             
             user?.saveInBackgroundWithBlock({ (success, error) in
                 spinner.stopAnimating()
@@ -93,7 +102,7 @@ class ProfileSettingsTableViewController: UITableViewController, UIImagePickerCo
         image.clipsToBounds = true
         image.layer.borderWidth = 3.0
         image.layer.borderColor = UIColor.whiteColor().CGColor
-        image.layer.cornerRadius = 10.0
+        image.layer.cornerRadius = image.frame.size.width / 2
         //self.tableView.reloadData()
         photoPickerFlag = true
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -110,6 +119,9 @@ class ProfileSettingsTableViewController: UITableViewController, UIImagePickerCo
         self.usernameText.delegate = self
         self.emailText.delegate = self
         self.blurbText.delegate = self
+        self.firstNameText.delegate = self
+        self.lastNameText.delegate = self
+        self.ageText.delegate = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -132,6 +144,10 @@ class ProfileSettingsTableViewController: UITableViewController, UIImagePickerCo
             self.usernameText.text = user?.username
             self.emailText.text = user?.email
             self.blurbText.text = user?["userBlurb"] as? String
+            self.firstNameText.text = user?["userFirstName"] as? String
+            self.lastNameText.text = user?["userLastName"] as? String
+            self.ageText.text = user?["userAge"] as? String
+
             
             if let userPicture = user?["userPhoto"] as? PFFile {
                 userPicture.getDataInBackgroundWithBlock { (imageData: NSData?, error: NSError?) -> Void in
@@ -140,7 +156,7 @@ class ProfileSettingsTableViewController: UITableViewController, UIImagePickerCo
                         self.image.clipsToBounds = true
                         self.image.layer.borderWidth = 3.0
                         self.image.layer.borderColor = UIColor.whiteColor().CGColor
-                        self.image.layer.cornerRadius = 10.0
+                        self.image.layer.cornerRadius = self.image.frame.size.width / 2
                     }
                 }
             }
