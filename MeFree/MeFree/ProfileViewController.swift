@@ -11,7 +11,8 @@ import Parse
 
 class ProfileViewController: UIViewController {
     
-    @IBOutlet weak var userEmail: UILabel!
+    @IBOutlet weak var firstLastAge: UILabel!
+    @IBOutlet weak var userStatus: UILabel!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userBlurb: UILabel!
@@ -103,7 +104,7 @@ class ProfileViewController: UIViewController {
         self.userImage.clipsToBounds = true
         self.userImage.layer.borderWidth = 3.0
         if friendship == true {
-            if profileUser!["userStatus"] as! String == "free" {
+            if profileUser!["userStatus"] as? String == "free" {
                 self.userImage.layer.borderColor = UIColor.greenColor().CGColor
             } else {
                 self.userImage.layer.borderColor = UIColor.redColor().CGColor
@@ -292,14 +293,31 @@ class ProfileViewController: UIViewController {
             if objects!.count > 0 {
                 print("friendship == true")
                 self.friendship = true
-                self.userEmail.text = self.profileUser?["userStatusText"] as? String
+                
+                var firstLastAge = ""
+                if let firstName = self.profileUser?["userFirstName"] as? String {
+                    firstLastAge += firstName
+                }
+                if let lastName = self.profileUser?["userLastName"] as? String {
+                    firstLastAge += " " + lastName
+                }
+                if let age = self.profileUser?["userAge"] as? String {
+                    firstLastAge += ", " + age
+                }
+                self.firstLastAge.text = firstLastAge
+                self.userStatus.text = self.profileUser?["userStatusText"] as? String
+                if self.profileUser!["userStatus"] as? String == "free" {
+                    self.userStatus.textColor = UIColor.greenColor()
+                } else {
+                    self.userStatus.textColor = UIColor.redColor()
+                }
                 self.userBlurb.text = self.profileUser?["userBlurb"] as? String
                 self.friendButtonText.setTitle("Remove Friend", forState: .Normal)
                 
             } else {
                 print("friendship == false")
                 self.friendship = false
-                self.userEmail.text = ""
+                self.userStatus.text = ""
                 let query = PFQuery(className: "FriendRequests")
                 query.whereKey("fromUser", equalTo: PFUser.currentUser()!)
                 query.whereKey("toUser", equalTo: self.profileUser!)
