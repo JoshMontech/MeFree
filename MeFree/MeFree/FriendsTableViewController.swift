@@ -96,14 +96,14 @@ class FriendsTableViewController: UITableViewController {
                     if (friend["userStatus"] as? String == "free") {
                         //image = UIImage(named: "green.jpg")!
                         //cell.backgroundColor = UIColor(red: 217/255, green: 247/255, blue: 187/255, alpha: 1/2)
-                        cell.cellImage.layer.borderColor = UIColor(red: 34/255, green: 238/255, blue: 91/255, alpha: 1.0).CGColor
+                        cell.cellImage.layer.borderColor = UIColor(colorLiteralRed: 8/255, green: 169/255, blue: 76/255, alpha: 1.0).CGColor
                         //34, 238, 91
                         //cell.alpha = 1/2
                         
                         
                         //if busy display red image
                     } else {
-                        cell.cellImage.layer.borderColor = UIColor(red: 255/255, green: 0, blue: 0, alpha: 1.0).CGColor
+                        cell.cellImage.layer.borderColor = UIColor(colorLiteralRed: 198/255, green: 38/255, blue: 48/255, alpha: 1.0).CGColor
                     }
                     
                 }

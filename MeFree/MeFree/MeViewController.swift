@@ -13,11 +13,11 @@ class MeViewController: UIViewController, UIImagePickerControllerDelegate, UINav
     
     //outlets
     @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var userEmailLabel: UILabel!
-    @IBOutlet weak var userStatusLabel: UILabel!
     @IBOutlet weak var userBlurbLabel: UILabel!
     @IBOutlet weak var userImageLabel: UIImageView!
     //@IBOutlet weak var switchOutlet: UISwitch!
+    @IBOutlet weak var firstLastAge: UILabel!
+    @IBOutlet weak var userStatus: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,16 +29,25 @@ class MeViewController: UIViewController, UIImagePickerControllerDelegate, UINav
             userNameLabel.text = userName
         }
         
-        if let userEmail = user!.email {
-            userEmailLabel.text = userEmail
+        var firstLastAgeString = ""
+        if let firstName = user?["userFirstName"] as? String {
+            firstLastAgeString += firstName
         }
-        
-        if let userStatus = user?["userStatus"] {
-            userStatusLabel.text = userStatus as? String
+        if let lastName = user?["userLastName"] as? String {
+            firstLastAgeString += " " + lastName
         }
+        if let age = user?["userAge"] as? String {
+            firstLastAgeString += ", " + age
+        }
+        firstLastAge.text = firstLastAgeString
+ 
+        if let status = user?["userStatusText"] as? String {
+            userStatus.text = status
+        }
+
         
-        if let userBlurb = user?["userBlurb"] {
-            userBlurbLabel.text = userBlurb as? String
+        if let userBlurb = user?["userBlurb"] as? String {
+            userBlurbLabel.text = userBlurb
         }
         
         
@@ -48,12 +57,14 @@ class MeViewController: UIViewController, UIImagePickerControllerDelegate, UINav
                 if (error == nil) {
                     self.userImageLabel.image = UIImage(data:imageData!)
                     self.userImageLabel.clipsToBounds = true
-                    self.userImageLabel.layer.borderWidth = 3.0
+                    self.userImageLabel.layer.borderWidth = 6.0
                     let status =  user?["userStatus"] as! String
                     if status == "free" {
-                        self.userImageLabel.layer.borderColor = UIColor.greenColor().CGColor
+                        self.userImageLabel.layer.borderColor = UIColor(colorLiteralRed: 8/255, green: 169/255, blue: 76/255, alpha: 1.0).CGColor
+                        self.userStatus.textColor = UIColor(colorLiteralRed: 8/255, green: 169/255, blue: 76/255, alpha: 1.0)
                     } else {
-                        self.userImageLabel.layer.borderColor = UIColor.redColor().CGColor
+                        self.userImageLabel.layer.borderColor = UIColor(colorLiteralRed: 198/255, green: 38/255, blue: 48/255, alpha: 1.0).CGColor
+                        self.userStatus.textColor = UIColor(colorLiteralRed: 198/255, green: 38/255, blue: 48/255, alpha: 1.0)
 
                     }
                     //self.userImageLabel.layer.borderColor = UIColor.whiteColor().CGColor

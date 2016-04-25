@@ -88,7 +88,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //updateFriendList()
         }
 
-        
+        //UINavigationBar.appearance().translucent = false
+        UINavigationBar.appearance().barTintColor = UIColor(red: 53/255, green: 146/255, blue: 204/255, alpha: 1.0)
+           
+        UINavigationBar.appearance().tintColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
+        //148,193,222
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)]
+
 
         //
         //  Swift 1.2

@@ -102,12 +102,12 @@ class ProfileViewController: UIViewController {
         
         // self.userImage.layer.cornerRadius = self.userImage.frame.size.width / 2
         self.userImage.clipsToBounds = true
-        self.userImage.layer.borderWidth = 3.0
+        self.userImage.layer.borderWidth = 6.0
         if friendship == true {
             if profileUser!["userStatus"] as? String == "free" {
-                self.userImage.layer.borderColor = UIColor.greenColor().CGColor
+                self.userImage.layer.borderColor = UIColor(colorLiteralRed: 8/255, green: 169/255, blue: 76/255, alpha: 1.0).CGColor
             } else {
-                self.userImage.layer.borderColor = UIColor.redColor().CGColor
+                self.userImage.layer.borderColor = UIColor(colorLiteralRed: 198/255, green: 38/255, blue: 48/255, alpha: 1.0).CGColor
             }
         } else {
             self.userImage.layer.borderColor = UIColor.whiteColor().CGColor
@@ -307,9 +307,9 @@ class ProfileViewController: UIViewController {
                 self.firstLastAge.text = firstLastAge
                 self.userStatus.text = self.profileUser?["userStatusText"] as? String
                 if self.profileUser!["userStatus"] as? String == "free" {
-                    self.userStatus.textColor = UIColor.greenColor()
+                    self.userStatus.textColor = UIColor(colorLiteralRed: 8/255, green: 169/255, blue: 76/255, alpha: 1.0)
                 } else {
-                    self.userStatus.textColor = UIColor.redColor()
+                    self.userStatus.textColor = UIColor(colorLiteralRed: 198/255, green: 38/255, blue: 48/255, alpha: 1.0)
                 }
                 self.userBlurb.text = self.profileUser?["userBlurb"] as? String
                 self.friendButtonText.setTitle("Remove Friend", forState: .Normal)

@@ -33,7 +33,7 @@ class PopoverStatusViewController: UIViewController {
         button.backgroundColor = UIColor.clearColor()
         button.layer.cornerRadius = 10
         button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.blackColor().CGColor
+        button.layer.borderColor = UIColor.whiteColor().CGColor
         
         
         // Do any additional setup after loading the view.

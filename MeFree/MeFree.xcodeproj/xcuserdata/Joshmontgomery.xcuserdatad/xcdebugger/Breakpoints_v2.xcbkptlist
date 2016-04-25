@@ -56,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MeFree/MeViewController.swift"
-            timestampString = "481501595.712365"
+            timestampString = "483295900.423681"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
             landmarkName = "MeViewController"
             landmarkType = "3">
          </BreakpointContent>
