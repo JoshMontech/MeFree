@@ -58,7 +58,7 @@ class MeViewController: UIViewController, UIImagePickerControllerDelegate, UINav
                     self.userImageLabel.image = UIImage(data:imageData!)
                     self.userImageLabel.clipsToBounds = true
                     self.userImageLabel.layer.borderWidth = 6.0
-                    let status =  user?["userStatus"] as! String
+                    let status =  user?["userStatus"] as? String
                     if status == "free" {
                         self.userImageLabel.layer.borderColor = UIColor(colorLiteralRed: 8/255, green: 169/255, blue: 76/255, alpha: 1.0).CGColor
                         self.userStatus.textColor = UIColor(colorLiteralRed: 8/255, green: 169/255, blue: 76/255, alpha: 1.0)

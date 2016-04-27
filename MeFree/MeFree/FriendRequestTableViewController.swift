@@ -71,14 +71,48 @@ class FriendRequestTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as!FriendRequestTableViewCell
 
         // Configure the cell...
-        cell.nameLabel?.text = friendRequests[indexPath.row]["fromUser"].username
+        let request = friendRequests[indexPath.row]
+        let fromUser = request.objectForKey("fromUser")
+        cell.nameLabel?.text = fromUser!.username
         
+        //
+        if let userPicture = fromUser?.objectForKey("userPhoto") as? PFFile {
+            userPicture.getDataInBackgroundWithBlock { (imageData: NSData?, error: NSError?) -> Void in
+                if (error == nil) {
+                    //cell.imageView!.frame = CGRectMake(0, 0, 10, 10)
+                    
+                    cell.cellImage.image = UIImage(data:imageData!)
+                    
+                    cell.cellImage.layer.cornerRadius = cell.cellImage.frame.size.width / 2
+                    cell.cellImage.clipsToBounds = true
+                    cell.cellImage.layer.borderWidth = 2.0
+                    //cell.cellImage.layer.borderColor = UIColor.whiteColor().CGColor
+                    if (fromUser?.objectForKey("userStatus") as? String == "free") {
+                        //image = UIImage(named: "green.jpg")!
+                        //cell.backgroundColor = UIColor(red: 217/255, green: 247/255, blue: 187/255, alpha: 1/2)
+                        cell.cellImage.layer.borderColor = UIColor(colorLiteralRed: 8/255, green: 169/255, blue: 76/255, alpha: 1.0).CGColor
+                        //34, 238, 91
+                        //cell.alpha = 1/2
+                        
+                        
+                        //if busy display red image
+                    } else {
+                        cell.cellImage.layer.borderColor = UIColor(colorLiteralRed: 198/255, green: 38/255, blue: 48/255, alpha: 1.0).CGColor
+                    }
+                    
+                }
+            }
+        }
+
+        //
         cell.acceptButton.tag = indexPath.row
         cell.rejectButton.tag = indexPath.row
         
         cell.acceptButton.addTarget(self, action: #selector(FriendRequestTableViewController.acceptFriendRequest(_:)), forControlEvents: .TouchUpInside)
         
         cell.rejectButton.addTarget(self, action: #selector(FriendRequestTableViewController.rejectFriendRequest(_:)), forControlEvents: .TouchUpInside)
+        
+        
     
          //cell.titleLabel?.text = targetUser.username
         return cell

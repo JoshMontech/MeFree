@@ -39,7 +39,7 @@ class PopoverStatusViewController: UIViewController {
         // Do any additional setup after loading the view.
         if let userStatus = PFUser.currentUser()?["userStatus"] {
             
-            if userStatus as! String == "free" {
+            if userStatus as? String == "free" {
                 statusSwitch.on = true
                 status = true
                 view.backgroundColor = UIColor(colorLiteralRed: 8/255, green: 169/255, blue: 76/255, alpha: 1/2)

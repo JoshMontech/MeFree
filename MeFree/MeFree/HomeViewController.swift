@@ -77,7 +77,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate 
                     self.usernamePhoto.image = UIImage(data:imageData!)
                     self.usernamePhoto.clipsToBounds = true
                     self.usernamePhoto.layer.borderWidth = 6.0
-                    if PFUser.currentUser()!["userStatus"] as! String == "free" {
+                    if PFUser.currentUser()!["userStatus"] as? String == "free" {
                         //self.homeSubview.backgroundColor = UIColor(red: 34/255, green: 238/255, blue: 91/255, alpha: 1/3)
                         self.usernamePhoto.layer.borderColor = UIColor(colorLiteralRed: 8/255, green: 169/255, blue: 76/255, alpha: 1.0).CGColor
                     } else {

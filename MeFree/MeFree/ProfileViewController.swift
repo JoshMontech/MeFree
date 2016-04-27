@@ -290,21 +290,22 @@ class ProfileViewController: UIViewController {
         
         
         userCheckC.findObjectsInBackgroundWithBlock({ (objects, error) in
+            var firstLastAge = ""
+            if let firstName = self.profileUser?["userFirstName"] as? String {
+                firstLastAge += firstName
+            }
+            if let lastName = self.profileUser?["userLastName"] as? String {
+                firstLastAge += " " + lastName
+            }
+            if let age = self.profileUser?["userAge"] as? String {
+                firstLastAge += ", " + age
+            }
+            self.firstLastAge.text = firstLastAge
             if objects!.count > 0 {
                 print("friendship == true")
                 self.friendship = true
                 
-                var firstLastAge = ""
-                if let firstName = self.profileUser?["userFirstName"] as? String {
-                    firstLastAge += firstName
-                }
-                if let lastName = self.profileUser?["userLastName"] as? String {
-                    firstLastAge += " " + lastName
-                }
-                if let age = self.profileUser?["userAge"] as? String {
-                    firstLastAge += ", " + age
-                }
-                self.firstLastAge.text = firstLastAge
+                
                 self.userStatus.text = self.profileUser?["userStatusText"] as? String
                 if self.profileUser!["userStatus"] as? String == "free" {
                     self.userStatus.textColor = UIColor(colorLiteralRed: 8/255, green: 169/255, blue: 76/255, alpha: 1.0)

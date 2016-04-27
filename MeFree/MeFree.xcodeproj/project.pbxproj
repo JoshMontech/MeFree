@@ -22,6 +22,7 @@
 		D03EA01E1CCC119B0097A6E0 /* Accept Icon 2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03EA01D1CCC119B0097A6E0 /* Accept Icon 2x.png */; };
 		D03EA0201CCC11D20097A6E0 /* Deny Icon 2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03EA01F1CCC11D20097A6E0 /* Deny Icon 2x.png */; };
 		D03EA0221CCC2CD90097A6E0 /* PopoverStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03EA0211CCC2CD90097A6E0 /* PopoverStatusViewController.swift */; };
+		D03EA0281CCFF6200097A6E0 /* UserSearchTableCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03EA0271CCFF6200097A6E0 /* UserSearchTableCellTableViewCell.swift */; };
 		D053BFE91CCADB6900225898 /* smile.png in Resources */ = {isa = PBXBuildFile; fileRef = D053BFE81CCADB6900225898 /* smile.png */; };
 		D053BFEB1CCAE18500225898 /* mefree.png in Resources */ = {isa = PBXBuildFile; fileRef = D053BFEA1CCAE18500225898 /* mefree.png */; };
 		D053BFED1CCBFF2A00225898 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = D053BFEC1CCBFF2A00225898 /* settings.png */; };
@@ -33,7 +34,6 @@
 		D0582FB01CA884D200931EED /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0582FAF1CA884D200931EED /* FriendsTableViewController.swift */; };
 		D0582FB41CAA08A600931EED /* UserSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0582FB31CAA08A600931EED /* UserSearchViewController.swift */; };
 		D0D8F3A21CAB48200095CD11 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D8F3A11CAB48200095CD11 /* ProfileViewController.swift */; };
-		D0D8F3A41CAB4FC20095CD11 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D8F3A31CAB4FC20095CD11 /* StatusViewController.swift */; };
 		D0D8F3A61CAC726F0095CD11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0D8F3A51CAC726F0095CD11 /* LaunchScreen.storyboard */; };
 		D0D8F3A81CACAE0E0095CD11 /* FriendRequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D8F3A71CACAE0E0095CD11 /* FriendRequestTableViewController.swift */; };
 		D0D8F3AA1CACB8010095CD11 /* FriendRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D8F3A91CACB8010095CD11 /* FriendRequestTableViewCell.swift */; };
@@ -64,6 +64,7 @@
 		D03EA01D1CCC119B0097A6E0 /* Accept Icon 2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Accept Icon 2x.png"; sourceTree = "<group>"; };
 		D03EA01F1CCC11D20097A6E0 /* Deny Icon 2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Deny Icon 2x.png"; sourceTree = "<group>"; };
 		D03EA0211CCC2CD90097A6E0 /* PopoverStatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverStatusViewController.swift; sourceTree = "<group>"; };
+		D03EA0271CCFF6200097A6E0 /* UserSearchTableCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchTableCellTableViewCell.swift; sourceTree = "<group>"; };
 		D053BFE81CCADB6900225898 /* smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smile.png; sourceTree = "<group>"; };
 		D053BFEA1CCAE18500225898 /* mefree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mefree.png; sourceTree = "<group>"; };
 		D053BFEC1CCBFF2A00225898 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
@@ -75,7 +76,6 @@
 		D0582FAF1CA884D200931EED /* FriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		D0582FB31CAA08A600931EED /* UserSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchViewController.swift; sourceTree = "<group>"; };
 		D0D8F3A11CAB48200095CD11 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		D0D8F3A31CAB4FC20095CD11 /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 		D0D8F3A51CAC726F0095CD11 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0D8F3A71CACAE0E0095CD11 /* FriendRequestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestTableViewController.swift; sourceTree = "<group>"; };
 		D0D8F3A91CACB8010095CD11 /* FriendRequestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestTableViewCell.swift; sourceTree = "<group>"; };
@@ -154,8 +154,8 @@
 				D0582FAF1CA884D200931EED /* FriendsTableViewController.swift */,
 				D0D8F3AF1CB095F80095CD11 /* FriendTableViewCell.swift */,
 				D0582FB31CAA08A600931EED /* UserSearchViewController.swift */,
+				D03EA0271CCFF6200097A6E0 /* UserSearchTableCellTableViewCell.swift */,
 				D0D8F3A11CAB48200095CD11 /* ProfileViewController.swift */,
-				D0D8F3A31CAB4FC20095CD11 /* StatusViewController.swift */,
 				D0D8F3A51CAC726F0095CD11 /* LaunchScreen.storyboard */,
 				D0D8F3A71CACAE0E0095CD11 /* FriendRequestTableViewController.swift */,
 				D0D8F3A91CACB8010095CD11 /* FriendRequestTableViewCell.swift */,
@@ -279,12 +279,12 @@
 				D03EA0221CCC2CD90097A6E0 /* PopoverStatusViewController.swift in Sources */,
 				D0582FB41CAA08A600931EED /* UserSearchViewController.swift in Sources */,
 				D0582FB01CA884D200931EED /* FriendsTableViewController.swift in Sources */,
+				D03EA0281CCFF6200097A6E0 /* UserSearchTableCellTableViewCell.swift in Sources */,
 				D0D8F3AA1CACB8010095CD11 /* FriendRequestTableViewCell.swift in Sources */,
 				D0D8F3D21CB2262F0095CD11 /* ProfileSettingsTableViewController.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* HomeViewController.swift in Sources */,
 				D0582F9A1CA20CD900931EED /* SignupViewController.swift in Sources */,
 				D0D8F3A21CAB48200095CD11 /* ProfileViewController.swift in Sources */,
-				D0D8F3A41CAB4FC20095CD11 /* StatusViewController.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

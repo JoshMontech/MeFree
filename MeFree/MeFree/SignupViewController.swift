@@ -95,6 +95,7 @@ class SignupViewController: UIViewController, UIImagePickerControllerDelegate, U
             newUser.password = password
             newUser.email = finalEmail
             newUser["userPhoto"] = imageFile
+            newUser["userStatus"] = "busy"
             
             // Sign up the user asynchronously
             newUser.signUpInBackgroundWithBlock({ (succeed, error) -> Void in

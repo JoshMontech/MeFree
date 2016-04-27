@@ -33,7 +33,7 @@ class UserSearchViewController: UIViewController, UITableViewDelegate, UISearchB
     }
     
     func search(searchText: String? = nil){
-        let finalTxt = searchText?.lowercaseString
+        let finalTxt = searchText
         let query = PFUser.query()
         
         if(finalTxt != nil){
@@ -62,22 +62,35 @@ class UserSearchViewController: UIViewController, UITableViewDelegate, UISearchB
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //might create issues limiting to 20... note
         if self.data != nil {
-            if self.data.count <= 20 {
-                return self.data.count
-            } else {
-                return 20
-            }
-        } //else
-        return 0
+            return self.data.count
+        } else {
+            return 0
+        }
         //return self.users.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("cell") as! UserSearchTableCellTableViewCell
 
         //if self.data != nil || self.data.count > 0 {
-            let obj = self.data[indexPath.row]
-            cell.textLabel!.text = obj["username"] as? String
+        let obj = self.data[indexPath.row]
+        if let userPicture = obj["userPhoto"] as? PFFile {
+            userPicture.getDataInBackgroundWithBlock { (imageData: NSData?, error: NSError?) -> Void in
+                if (error == nil) {
+                    //cell.imageView!.frame = CGRectMake(0, 0, 10, 10)
+                    
+                    cell.cellImage.image = UIImage(data:imageData!)
+                    
+                    cell.cellImage.layer.cornerRadius = cell.cellImage.frame.size.width / 2
+                    cell.cellImage.clipsToBounds = true
+                    //cell.cellImage.layer.borderWidth = 2.0
+                    //cell.cellImage.layer.borderColor = UIColor.whiteColor().CGColor
+                    //cell.cellImage.layer.borderColor = UIColor.whiteColor().CGColor
+                    
+                }
+            }
+        }
+            cell.cellText.text = obj["username"] as? String
             return cell
         //}
         
