@@ -23,6 +23,7 @@
 		D03EA0201CCC11D20097A6E0 /* Deny Icon 2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D03EA01F1CCC11D20097A6E0 /* Deny Icon 2x.png */; };
 		D03EA0221CCC2CD90097A6E0 /* PopoverStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03EA0211CCC2CD90097A6E0 /* PopoverStatusViewController.swift */; };
 		D03EA0281CCFF6200097A6E0 /* UserSearchTableCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03EA0271CCFF6200097A6E0 /* UserSearchTableCellTableViewCell.swift */; };
+		D03EA02A1CD276240097A6E0 /* userTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03EA0291CD276240097A6E0 /* userTextField.swift */; };
 		D053BFE91CCADB6900225898 /* smile.png in Resources */ = {isa = PBXBuildFile; fileRef = D053BFE81CCADB6900225898 /* smile.png */; };
 		D053BFEB1CCAE18500225898 /* mefree.png in Resources */ = {isa = PBXBuildFile; fileRef = D053BFEA1CCAE18500225898 /* mefree.png */; };
 		D053BFED1CCBFF2A00225898 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = D053BFEC1CCBFF2A00225898 /* settings.png */; };
@@ -65,6 +66,7 @@
 		D03EA01F1CCC11D20097A6E0 /* Deny Icon 2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Deny Icon 2x.png"; sourceTree = "<group>"; };
 		D03EA0211CCC2CD90097A6E0 /* PopoverStatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverStatusViewController.swift; sourceTree = "<group>"; };
 		D03EA0271CCFF6200097A6E0 /* UserSearchTableCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchTableCellTableViewCell.swift; sourceTree = "<group>"; };
+		D03EA0291CD276240097A6E0 /* userTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userTextField.swift; sourceTree = "<group>"; };
 		D053BFE81CCADB6900225898 /* smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smile.png; sourceTree = "<group>"; };
 		D053BFEA1CCAE18500225898 /* mefree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mefree.png; sourceTree = "<group>"; };
 		D053BFEC1CCBFF2A00225898 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				D0D8F3A91CACB8010095CD11 /* FriendRequestTableViewCell.swift */,
 				D0D8F3D11CB2262F0095CD11 /* ProfileSettingsTableViewController.swift */,
 				D03EA0211CCC2CD90097A6E0 /* PopoverStatusViewController.swift */,
+				D03EA0291CD276240097A6E0 /* userTextField.swift */,
 			);
 			path = MeFree;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				D03EA0281CCFF6200097A6E0 /* UserSearchTableCellTableViewCell.swift in Sources */,
 				D0D8F3AA1CACB8010095CD11 /* FriendRequestTableViewCell.swift in Sources */,
 				D0D8F3D21CB2262F0095CD11 /* ProfileSettingsTableViewController.swift in Sources */,
+				D03EA02A1CD276240097A6E0 /* userTextField.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* HomeViewController.swift in Sources */,
 				D0582F9A1CA20CD900931EED /* SignupViewController.swift in Sources */,
 				D0D8F3A21CAB48200095CD11 /* ProfileViewController.swift in Sources */,

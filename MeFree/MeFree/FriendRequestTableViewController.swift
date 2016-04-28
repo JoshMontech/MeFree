@@ -85,8 +85,9 @@ class FriendRequestTableViewController: UITableViewController {
                     
                     cell.cellImage.layer.cornerRadius = cell.cellImage.frame.size.width / 2
                     cell.cellImage.clipsToBounds = true
-                    cell.cellImage.layer.borderWidth = 2.0
+                    //cell.cellImage.layer.borderWidth = 2.0
                     //cell.cellImage.layer.borderColor = UIColor.whiteColor().CGColor
+                    /*
                     if (fromUser?.objectForKey("userStatus") as? String == "free") {
                         //image = UIImage(named: "green.jpg")!
                         //cell.backgroundColor = UIColor(red: 217/255, green: 247/255, blue: 187/255, alpha: 1/2)
@@ -99,7 +100,7 @@ class FriendRequestTableViewController: UITableViewController {
                     } else {
                         cell.cellImage.layer.borderColor = UIColor(colorLiteralRed: 198/255, green: 38/255, blue: 48/255, alpha: 1.0).CGColor
                     }
-                    
+                    */
                 }
             }
         }
