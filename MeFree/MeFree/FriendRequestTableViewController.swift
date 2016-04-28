@@ -12,12 +12,15 @@ import Parse
 class FriendRequestTableViewController: UITableViewController {
     
     var friendRequests = [PFObject]()
+    var updateFlag = false
+    
     //let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
+        updateFlag = false
         //debug - print("friendRequestViewWillAppear")
     }
  
@@ -122,6 +125,17 @@ class FriendRequestTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //update requestStatus
         //print("update requeststatus")
+        let request = friendRequests[indexPath.row]
+        let fromUser = request.objectForKey("fromUser") as! PFUser
+        
+        
+        //if friend, profile view
+        let profileViewController = self.storyboard?.instantiateViewControllerWithIdentifier("profile") as!ProfileViewController
+        
+        //if not friend, spectate view
+        
+        profileViewController.profileUser = fromUser
+        self.navigationController?.pushViewController(profileViewController, animated: true)
     }
     
     //updates friend status
@@ -132,6 +146,7 @@ class FriendRequestTableViewController: UITableViewController {
     
     @IBAction func acceptFriendRequest(sender: UIButton) {
         //update DB
+        if updateFlag != true {
         
         //debug - print("Before accept: \(appDelegate.friendsOfUser)")
         //print("acceptFriendRequest")
@@ -159,7 +174,9 @@ class FriendRequestTableViewController: UITableViewController {
             }
         }
         
+        }
         
+        updateFlag = true
         //self.friendRequests.removeAtIndex(sender.tag)
         //self.tableView.reloadData()
         //appDelegate.updateFriendList()
@@ -172,9 +189,12 @@ class FriendRequestTableViewController: UITableViewController {
     @IBAction func rejectFriendRequest(sender: UIButton) {
         //not implemented yet
         //update DB
+        if updateFlag != true {
         updateStatus(self.friendRequests[sender.tag], status: "")
         self.friendRequests.removeAtIndex(sender.tag)
         self.tableView.reloadData()
+        updateFlag = true
+        }
         
         //message prompt
     }

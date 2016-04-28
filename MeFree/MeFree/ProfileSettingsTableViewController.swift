@@ -100,8 +100,8 @@ class ProfileSettingsTableViewController: UITableViewController, UIImagePickerCo
         print("didFinishpicking")
         image.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         image.clipsToBounds = true
-        image.layer.borderWidth = 6.0
-        image.layer.borderColor = UIColor.whiteColor().CGColor
+        //image.layer.borderWidth = 6.0
+        //image.layer.borderColor = UIColor.whiteColor().CGColor
         image.layer.cornerRadius = image.frame.size.width / 2
         //self.tableView.reloadData()
         photoPickerFlag = true
@@ -155,8 +155,8 @@ class ProfileSettingsTableViewController: UITableViewController, UIImagePickerCo
                     if (error == nil) {
                         self.image.image = UIImage(data:imageData!)
                         self.image.clipsToBounds = true
-                        self.image.layer.borderWidth = 6.0
-                        self.image.layer.borderColor = UIColor.whiteColor().CGColor
+                        //self.image.layer.borderWidth = 6.0
+                        //self.image.layer.borderColor = UIColor.whiteColor().CGColor
                         self.image.layer.cornerRadius = self.image.frame.size.width / 2
                     }
                 }
